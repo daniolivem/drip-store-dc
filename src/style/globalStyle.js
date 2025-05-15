@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     --error-color: #EE4266;
     --success-color: #52CA76;
     --warning-color: #F6AA1C;
+    --card-destaque-color: #D8E3F2;
+    --card-tag-color: #E7FF86;
 
     /* Grayscales (Tons de cinza) */
     --dark-gray: #1f1f1f;

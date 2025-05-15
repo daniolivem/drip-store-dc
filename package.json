@@ -16,8 +16,12 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+<<<<<<< HEAD
     "react-icons": "^5.5.0",
     "react-responsive": "^10.0.1",
+=======
+    "react-router-dom": "^7.6.0",
+>>>>>>> 0e28891c5bff7776beb94394cd87089fd74eff81
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

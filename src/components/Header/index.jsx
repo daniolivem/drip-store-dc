@@ -1,42 +1,102 @@
-import { Logo } from '../Logo';
-import CartImage from '../../assets/images/Carrinho.svg';
-import { Container, Li } from './styles';
-import SearchIcon from '../../assets/images/Search.svg';
+import Logo from '../Logo';
+import CartImage from '../../assets/icons/Carrinho.svg';
+import { Container, StyledNavLink } from './styles';
+import SearchIcon from '../../assets/icons/Search.svg';
+import MenuIcon from '../../assets/icons/Menu.svg';
+import MenuVertIcon from '../../assets/icons/Menu-vertical.svg';
+import { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-export const Header = () => {
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setShowMenu(!showMenu);
+  };
+
+  // Função para lidar com a mudança no campo de pesquisa
+  const handleInputChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Função para lidar com a pesquisa
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      // Formata o termo de busca para a URL (substitui espaços por hifens e converte para minúsculas)
+      const formattedSearchTerm = searchTerm
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, '-');
+      navigate(`/products?filter=${formattedSearchTerm}`);
+    }
+  };
+
+  // Função para lidar com a tecla Enter
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
-    <Container>
+    <Container className='header'>
       <div className='dropshadow'>
         <div className='header-main'>
-          <div>
+          <button className='menu-button' onClick={handleMenuClick}>
+            {isMenuOpen ? (
+              <img
+                src={MenuVertIcon}
+                alt='Ícone de menu vertical'
+                style={{ height: '24px' }}
+              />
+            ) : (
+              <img src={MenuIcon} alt='Ícone de menu' />
+            )}
+          </button>
+
+          <div className='content-logo'>
             <Logo />
           </div>
 
           <div className='search-input'>
-            <input type='text' placeholder='Pesquisar produtos...' />
+            <input
+              type='text'
+              placeholder='Pesquisar produtos...'
+              value={searchTerm}
+              onChange={handleInputChange}
+              onKeyUp={handleKeyPress}
+            />
 
-            <div className='search-icon'>
+            <div className='search-icon' onClick={handleSearch}>
               <img src={SearchIcon} alt='Ícone de pesquisa' />
             </div>
 
-            <a href='#'>Cadastre-se</a>
+            <NavLink to='/register'>Cadastre-se</NavLink>
           </div>
 
           <div className='header-buttons'>
-            <button type='button'>Entrar</button>
+            <button type='button'>
+              <NavLink to='/login'>Entrar</NavLink>
+            </button>
             <img src={CartImage} alt='Imagem do carrinho de compras' />
           </div>
         </div>
 
         <nav className='header-nav'>
           <ul>
-            <Li $action>Home</Li>
-            <Li>Produtos</Li>
-            <Li>Categorias</Li>
-            <Li>Meus Pedidos</Li>
+            <StyledNavLink to='/'>Home</StyledNavLink>
+            <StyledNavLink to='/produtos'>Produtos</StyledNavLink>
+            <StyledNavLink to='/categorias'>Categorias</StyledNavLink>
+            <StyledNavLink to='/orders'>Meus Pedidos</StyledNavLink>
           </ul>
         </nav>
       </div>
     </Container>
   );
 };
+
+export default Header;

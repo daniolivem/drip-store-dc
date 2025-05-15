@@ -129,16 +129,16 @@ Utilizar a fonte `Inter` com os seguintes weights:
 
 ## ✅ Status do projeto
 
-| Parte                          | Responsável | Status |
-| ------------------------------ | ----------- | ------ |
-| Layout geral (`Layout`)        | Pessoa 1    | ⬜️     |
-| Header/Footer                  | Pessoa 1    | ⬜️     |
-| Página Home                    | Pessoa 1    | ⬜️     |
-| Página de Produtos             | Pessoa 2    | ⬜️     |
-| Filtros / Ordenação            | Pessoa 2    | ⬜️     |
-| Página Visualização de Produto | Pessoa 3    | ⬜️     |
-| Buy Box + Product Options      | Pessoa 3    | ⬜️     |
-| Produtos recomendados          | Pessoa 3    | ⬜️     |
+| Parte                          | Responsável | Status                                    |
+| ------------------------------ | ----------- | ----------------------------------------- |
+| Layout geral (`Layout`)        | [Anderson]  | ⬜️ Header [feito-faltando-responsividade] |
+| Header/Footer                  | Pessoa 1    | ⬜️                                        |
+| Página Home                    | Pessoa 1    | ⬜️                                        |
+| Página de Produtos             | Pessoa 2    | ⬜️                                        |
+| Filtros / Ordenação            | Pessoa 2    | ⬜️                                        |
+| Página Visualização de Produto | Pessoa 3    | ⬜️                                        |
+| Buy Box + Product Options      | Pessoa 3    | ⬜️                                        |
+| Produtos recomendados          | Pessoa 3    | ⬜️                                        |
 
 ---
 
