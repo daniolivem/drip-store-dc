@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 a[href^="tel:"] {
   color: var(--white, #FFF) !important;
@@ -21,7 +17,7 @@ a[href^="tel:"] {
     padding: 2rem;
     background: var(--dark-gray, #1f1f1f);
     color: var(--white, #FFFFFF);
-    overflow: hidden;
+    
 }
 
 /* ok */
