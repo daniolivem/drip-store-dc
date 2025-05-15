@@ -1,4 +1,6 @@
+import Footer from './components/Footer';
 import { Layout } from './pages/Layout';
+
 
 export const App = () => {
   return (
@@ -7,3 +9,4 @@ export const App = () => {
     </div>
   );
 };
+export default App; 

@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import { Header } from '../components/Header';
 import styled from 'styled-components';
 
@@ -13,7 +14,9 @@ export const Layout = () => {
       <Header />
       <p>aqui children</p>
 
-      <footer>aqui o footer</footer>
+      <footer>
+        <Footer />
+      </footer>
     </Container>
   );
 };
