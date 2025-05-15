@@ -23,7 +23,7 @@ export const Footer = () => (
         {/* div descrição */}
         <div>
             <p className="footer-description">
-                lorem ipsum dolor sit amet, loreipsum dolor sit amet, loreipsum dolor sit amet, loreipsum dolor sit amet, loreipsum dolor sit amet, loreipsum dolor sit amet, lore
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
         </div>
 
@@ -60,9 +60,8 @@ export const Footer = () => (
             {/* address */}
             <address className="footer-address">
                 <strong className="footer-address-title">Contato</strong>
-                <p className="p-address">Av. Santos Dumont, 1510 - 1 andar</p>
-                <p className="p-address">Aldeota, Fortaleza - Ceará</p>
-                <p className="p-address">60150-160</p>
+                <p className="p-address">Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-160</p>
+            
             </address>
             <div className="footer-phone">
                 <a  href="tel: +558530513411">(85) 3051-3411</a>
