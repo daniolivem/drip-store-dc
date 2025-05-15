@@ -91,6 +91,13 @@ export const Footer = () => (
         <div className="footer-copy">
             <FooterCopy >© {new Date().getFullYear()} Digital College</FooterCopy>
         </div>
+        <div className="footer-content">
+            <div className="footer-info">...</div>
+            <div className="footer-categories">...</div>
+            <address className="footer-address">...</address>
+            <div className="footer-phone">...</div>
+        </div>
+ 
     </footer>
 );
 
