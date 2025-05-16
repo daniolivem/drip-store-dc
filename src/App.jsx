@@ -1,3 +1,4 @@
+
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
@@ -60,5 +61,4 @@ const App = () => {
     </Suspense>
   );
 };
-
 export default App;
