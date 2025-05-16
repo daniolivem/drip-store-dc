@@ -1,11 +1,12 @@
 import Logo from '../Logo';
 import CartImage from '../../assets/icons/Carrinho.svg';
-import { Container, StyledNavLink } from './styles';
+import { BtnNavLink, Container, StyledNavLink } from './styles';
 import SearchIcon from '../../assets/icons/Search.svg';
 import MenuIcon from '../../assets/icons/Menu.svg';
 import MenuVertIcon from '../../assets/icons/Menu-vertical.svg';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { PrimaryBtn } from '../Buttons';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,9 +80,10 @@ const Header = () => {
           </div>
 
           <div className='header-buttons'>
-            <button type='button'>
-              <NavLink to='/login'>Entrar</NavLink>
-            </button>
+            <PrimaryBtn>
+              <BtnNavLink to='/login'>Entrar</BtnNavLink>
+            </PrimaryBtn>
+
             <img src={CartImage} alt='Imagem do carrinho de compras' />
           </div>
         </div>

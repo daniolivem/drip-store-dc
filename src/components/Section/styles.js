@@ -43,4 +43,5 @@ export const SectionContent = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: center;
 `;

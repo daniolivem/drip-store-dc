@@ -82,24 +82,6 @@ export const Container = styled.header`
       display: flex;
       align-items: center;
       gap: 70px;
-
-      & button {
-        cursor: pointer;
-        width: 114px;
-        height: 40px;
-        border-radius: 8px;
-        background-color: var(--primary-color);
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 0.75px;
-        line-height: 22px;
-        color: var(--light-gray-3);
-        transition: all 0.3s ease-in-out;
-      }
-
-      & button:hover {
-        background-color: var(--tertiary-color);
-      }
     }
 
     & input {
@@ -172,12 +154,6 @@ export const Container = styled.header`
         position: absolute;
         right: 0;
       }
-
-      & button {
-        @media (max-width: 460px) {
-          display: none;
-        }
-      }
     }
 
     .menu-button {
@@ -246,4 +222,8 @@ export const StyledNavLink = styled(NavLink)`
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
   }
+`;
+
+export const BtnNavLink = styled(NavLink)`
+  color: var(--light-gray-3);
 `;

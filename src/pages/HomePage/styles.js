@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContentCard = styled.div`
+export const ContentCard = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -26,26 +26,6 @@ export const ContentCard = styled.div`
         font-size: 2rem;
         font-weight: 700;
         color: var(--dark-gray);
-      }
-
-      button {
-        width: 100%;
-        max-width: 133px;
-        height: 40px;
-        border-radius: 8px;
-        background-color: var(--light-gray-3);
-        color: var(--primary-color);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.75px;
-        line-height: 22px;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          background-color: var(--light-gray-2);
-        }
       }
 
       .card-tag {
@@ -100,5 +80,53 @@ export const ContentCard = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
     gap: 10px;
+  }
+`;
+
+export const ContainerCircles = styled.section`
+  width: 100%;
+  max-width: 712px;
+  height: 138px;
+  display: flex;
+  gap: 48px;
+
+  .content {
+    width: 100%;
+    max-width: 104px;
+    height: 100%;
+
+    p {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark-gray-2);
+    }
+
+    .content-image {
+      background-color: var(--white);
+      width: 104px;
+      height: 104px;
+      border-radius: 150px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
+  /* Responsividade */
+
+  @media (max-width: 460px) {
+    max-width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
 `;
