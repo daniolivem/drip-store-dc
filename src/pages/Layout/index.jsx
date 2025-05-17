@@ -1,5 +1,5 @@
+import FooterScom from '../../components/Footer/FooterScom';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import { Container, Content } from './styles';
 
 const Layout = ({ children }) => {
@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <Container>
       <Header />
       <Content>{children}</Content>
-      <Footer />
+      <FooterScom />
     </Container>
   );
 };

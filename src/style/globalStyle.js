@@ -37,6 +37,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
+  html {
+    min-height: 100%;
+  }
+
   input, textarea, button, a, ul {
     text-decoration: none;
     list-style: none;

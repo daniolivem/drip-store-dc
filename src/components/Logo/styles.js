@@ -7,10 +7,16 @@ export const ContainerLogo = styled.div`
   width: 256px;
   align-items: center;
 
+  @media (max-width: 460px) {
+    width: 170px;
+    height: 29.5px;
+  }
+
   .content-icon,
   .content-image {
     height: 40px;
     width: 100%;
+    color: var(--white);
   }
 
   .icon-logo {
@@ -35,13 +41,7 @@ export const ContainerLogo = styled.div`
     }
   }
 
-  @media (max-width: 460px) {
-    // Adicione esta regra de mídia para telas menore (mobile)
-    width: 100%;
-    max-width: 138px;
-    height: 24px;
-    gap: 4px;
-  }
+  /* Responsividade */
 
   .content-icon {
     @media (max-width: 460px) {
@@ -55,13 +55,5 @@ export const ContainerLogo = styled.div`
       // Adicione esta regra de mídia para telas menore (mobile)
       height: 24px;
     }
-  }
-
-  @media (max-width: 800px) {
-    // Adiciona esta regra para telas menores (tablet)
-    width: 100%;
-    max-width: 198px;
-    height: 34px;
-    gap: 6px;
   }
 `;
