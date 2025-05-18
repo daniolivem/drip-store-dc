@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white, #FFFFFF);    
+}
+
+.login-title {
+    /* H3 Title - Desktop Bold */
+    width: 523px;
+    color: var(--dark-gray, #1F1F1F);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 112.5% */
+    letter-spacing: 1px;
+}
+
+.login-subtitle {
+    color: var(--dark-gray-2, #474747);
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+    letter-spacing: 0.75px;
+}

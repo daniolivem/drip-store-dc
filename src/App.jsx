@@ -1,4 +1,3 @@
-
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
@@ -6,6 +5,7 @@ import Layout from './pages/Layout';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
 
 const App = () => {
   return (
@@ -35,7 +35,6 @@ const App = () => {
             </Layout>
           }
         />
-
         <Route
           path='/categorias'
           element={
@@ -44,21 +43,33 @@ const App = () => {
             </Layout>
           }
         />
-
         <Route
           path='/orders'
-          element={<Layout>{<div>Meus Pedidos</div>}</Layout>}
+          element={
+            <Layout>
+              <div>Meus Pedidos</div>
+            </Layout>
+          }
         />
         <Route
           path='/login'
-          element={<Layout>{<div>Já tem uma conta? Faça Login!</div>}</Layout>}
+          element={
+            <Layout>
+              <LoginPage />
+            </Layout>
+          }
         />
         <Route
           path='/register'
-          element={<Layout>{<div>Não possui conta? Cadastre-se!</div>}</Layout>}
+          element={
+            <Layout>
+              <div>Não possui conta? Cadastre-se!</div>
+            </Layout>
+          }
         />
       </Routes>
     </Suspense>
   );
 };
+
 export default App;
