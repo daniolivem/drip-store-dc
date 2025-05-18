@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import pexels from '../../assets/images/pexels.svg';
+import pexels2 from '../../assets/images/pexels2.svg';
+
 // Componente principal da página de login
 const LoginPage = () => {
     // Estado para armazenar os dados do formulário (email e senha)
@@ -43,44 +46,42 @@ const LoginPage = () => {
     };
 
     return (
-        <div className='container'>
-            <div>
-                <div className='container'>
+        <><div className='container'>
+            <div className='container-form'>
+                <div className='container-title'>
                     {/* Título e link para registro */}
                     <h3 className='login-title'>Acesse sua conta</h3>
                     <p className='login-subtitle'>
                         Novo cliente? Então registre-se <Link to="/register">aqui</Link>
                     </p>
-                    </div>
-                    {/* Formulário de login */}
+                </div>
+                {/* Formulário de login */}
                 <form onSubmit={handleSubmit}>
                     <div>
                         {/* Campo de email */}
-                        <label htmlFor="email">Email</label>
-                        <input
+                        <label htmlFor="email">Login *</label>
+                        <input className='input'
                             id="email"
                             name="email"
                             type="email"
                             autoComplete="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="exemplo@email.com"
-                        />
+                            placeholder="Insira seu login ou email" />
                         {/* Exibe mensagem de erro do email, se houver */}
                         {errors.email && <p>{errors.email}</p>}
                     </div>
                     <div>
                         {/* Campo de senha */}
-                        <label htmlFor="password">Senha</label>
-                        <input
+                        <label htmlFor="password">Senha *</label>
+                        <input className='input'
                             id="password"
                             name="password"
                             type="password"
                             autoComplete="current-password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="********"
-                        />
+                            placeholder="Insira sua senha" />
                         {/* Exibe mensagem de erro da senha, se houver */}
                         {errors.password && <p>{errors.password}</p>}
                     </div>
@@ -88,32 +89,32 @@ const LoginPage = () => {
                         <div>
                             {/* Link para recuperação de senha */}
                             <Link to="/forgot-password">
-                                Esqueci minha senha?
+                                <p className="forgot-password">Esqueci minha senha?</p>
                             </Link>
                         </div>
                     </div>
                     {/* Botão de envio do formulário, desabilitado enquanto está enviando */}
-                    <button
+                    <button className='button'
                         type="submit"
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? 'Entrando...' : 'Acessar Conta'}
                     </button>
                 </form>
-                <div>
+                <div className='container-social'>
                     <div>
                         <div>
                             <div></div>
                         </div>
                         <div>
                             {/* Texto separador para login social */}
-                            <span>Ou faça login com</span>
+                            <span className='login-separator'>Ou faça login com</span>
                         </div>
                     </div>
-                    
+
                     {/* Ícones de redes sociais para login alternativo */}
                     <div>
-                        <ul>
+                        <ul className='social'>
                             <li className='footer-social-icon'>
                                 {/* Ícone do Google */}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
@@ -135,7 +136,17 @@ const LoginPage = () => {
                     </div>
                 </div>
             </div>
+
         </div>
+        <div className='container-image1'>
+            {/* Imagem de fundo da página de login */}
+            <img src={pexels} alt="Imagem de fundo" />
+        </div>
+        <div className='container-image2'>
+            {/* Imagem de fundo da página de login */}
+            <img src={pexels2} alt="Imagem de fundo" />
+        </div>
+    </>
     );
 };
 
