@@ -68,9 +68,10 @@ src/
 
 [--------------------------------------------------------------------------------------------------]
 
-### 👤 {DANI} - Components + Pages
+### 👤 [DANI] - Components + Pages
 
-📁 Diretório: `src/pages/ProductListingPage`
+📁 Diretório: `src/pages`
+📁 Diretório: `src/assets/components`
 
 **Responsável por:**
 - Components:
