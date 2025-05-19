@@ -75,8 +75,8 @@ src/
 
 **Responsável por:**
 - Components:
-  - - Componente `<Footer />` (logo, informações, redes sociais, direitos autorais);
-  - - Componente `<OrderTrackin />` (Seção de pedidos);
+  - Componente `<Footer />` (logo, informações, redes sociais, direitos autorais);
+  - Componente `<OrderTrackin />` (Seção de pedidos);
 - Páginas:
   - `/CreateAccountInitialPage`
   - `/CreateFormPage`
