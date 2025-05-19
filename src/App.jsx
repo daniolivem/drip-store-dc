@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route, Form } from 'react-router-dom';
 import Layout from './pages/Layout';
 import FormCreatePage from "./pages/FormCreatePage";
+import OrderTracking from './components/OrderTracking';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
@@ -48,7 +49,7 @@ const App = () => {
           path='/orders'
           element={
             <Layout>
-              <div>Meus Pedidos</div>
+              <OrderTracking />
             </Layout>
           }
         />

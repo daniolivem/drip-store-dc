@@ -6,11 +6,11 @@ Este projeto faz parte do curso de Front-End e será desenvolvido em equipe por 
 
 ## 👥 Equipe
 
-| Membro | Nome       | Responsabilidade Principal        |
-| ------ | ---------- | --------------------------------- |
-| 👤 1   | [Anderson] | Layout geral + Página Inicial     |
-| 👤 2   | [Dani] | Footer + ...    |
-| 👤 3   | [Colega 2] | Página de Visualização do Produto |
+| Membro | Nome         | Responsabilidade Principal                                      |
+| ------ | ------------ | --------------------------------------------------------------- |
+| 👤 1   | [Anderson]   | Layout geral + Página Inicial                                   |
+| 👤 2   | [Dani]       | Footer + Order Tracking + FormCreatePage + CreateAccountInitialPage + LoginPage |
+| 👤 3   | [Colega 2]   | Página de Visualização do Produto                               |
 
 > Observação: todos podem revisar e ajudar nas tarefas uns dos outros via Pull Request!
 

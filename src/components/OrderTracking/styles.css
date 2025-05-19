@@ -1,0 +1,199 @@
+/* Layout geral da página de rastreamento de pedidos */
+.order-tracking-container {
+  width: 90%;
+  height: 612px;
+  margin-bottom: 60px;
+  margin-left: 50px;
+  margin-right: 10px;
+  margin-top: 40px;
+  display: flex;
+  background-color: #F9F8FE;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+}
+
+/* Sidebar (menu lateral) */
+.sidebar {
+  display: flex;
+  width: 350px;
+  height: 260px;
+  padding: 30px;
+  margin-right: 40px;
+  margin-left: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  background: #FFF;
+}
+
+/* Itens do menu lateral */
+.sidebar-item {
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  color: #4b5563;
+  font-size: 14px;
+  transition: all 0.2s; /* animação suave */
+ 
+}
+
+/* Item ativo do menu lateral */
+.sidebar-item.active {
+  color: #e11d48;
+  font-weight: 500;
+}
+
+/* Área principal onde fica o conteúdo */
+.main-content {
+  background-color: #FFF;
+  flex: 1;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* Cabeçalho da página */
+.header {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-right: 100px;
+  color: var(--dark-gray-2, #a2a1a1);
+  font-feature-settings: 'liga' off, 'clig' off;
+  /* Text X-Small Bold */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.75px;
+  /* border-bottom: 1px solid #eee; */
+}
+
+/* Título do cabeçalho */
+.header h1 {
+  color: var(--dark-gray-2, #474747);
+  text-align: left;
+  font-feature-settings: 'liga' off, 'clig' off;
+  /* Text X-Small Bold */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.75px;
+}
+
+/* Subtítulo/status do cabeçalho */
+.status-header {
+  margin-top: -24px;
+  color: var(--dark-gray-2, #474747);
+  text-align: right;
+  margin-right: -99px;
+  font-feature-settings: 'liga' off, 'clig' off;
+  /* Text X-Small - Desktop */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.25px;
+  /* border-bottom: 1px solid #eee; */
+}
+
+/* Linha divisória */
+.divider {
+  width: 750px;
+  position: absolute;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Lista de pedidos */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+/* Cada item de pedido */
+.order-item {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Detalhes do pedido (lado esquerdo do item) */
+.order-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Container da imagem do produto */
+.product-image-container {
+  width: 71.178px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 2.669px;
+  background: #E2E3FF;
+}
+
+/* Imagem do produto */
+.product-image {
+  width: 70.628px;
+  height: 55.191px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 2.669px;
+  background-color: #E2E3FF;
+  background-image: url('/src/assets/images/tenisnike.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Número do pedido */
+.order-info .order-number {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+/* Nome do produto */
+.order-info .product-name {
+  font-weight: 500;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+/* Indicadores de status do pedido */
+.status {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Status: em trânsito */
+.status.in-transit {
+  color: #f59e0b;
+}
+
+/* Status: concluído */
+.status.completed {
+  color: #6b7280;
+}
+
+/* Status: cancelado */
+.status.canceled {
+  color: #e11d48;
+}
+
