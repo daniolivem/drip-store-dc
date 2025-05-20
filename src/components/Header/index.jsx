@@ -100,9 +100,6 @@ const Header = () => {
             <StyledNavLink to='/orders'>Meus Pedidos</StyledNavLink>
           </ul>
         </nav>
-        </div>
-
-       
       </div>
     </Container>
   );
