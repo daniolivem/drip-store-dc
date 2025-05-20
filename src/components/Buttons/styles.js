@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ButtonPrimary = styled.button`
   cursor: pointer;
-  width: 114px;
-  height: 40px;
+  width: ${props => (props.$desktop ? '220px' : '114px')};
+  height: ${props => (props.$desktop ? '48px' : '40px')};
   border-radius: 8px;
   background-color: var(--primary-color);
   font-weight: 700;
@@ -11,13 +11,16 @@ export const ButtonPrimary = styled.button`
   letter-spacing: 0.75px;
   line-height: 22px;
   transition: all 0.3s ease-in-out;
+  color: var(--light-gray-3);
 
   &:hover {
     background-color: var(--tertiary-color);
   }
 
   @media (max-width: 460px) {
-    display: none;
+    display: ${props => (props.$mobile ? 'block' : 'none')};
+    width: 100%;
+    margin-top: 10px;
   }
 `;
 export const ButtonSecundary = styled.button`

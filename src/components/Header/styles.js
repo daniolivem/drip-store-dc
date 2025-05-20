@@ -17,6 +17,7 @@ export const Container = styled.header`
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    transition: height 0.3s ease;
   }
 
   .header-main {
@@ -86,7 +87,11 @@ export const Container = styled.header`
 
     & input {
       @media (max-width: 460px) {
-        display: none;
+        /* Estilos específicos para o input em mobile */
+        transition: all 0.3s ease;
+        width: 100%;
+        min-width: 315px;
+        height: 60px;
       }
     }
 
@@ -118,14 +123,23 @@ export const Container = styled.header`
       letter-spacing: 0.75px;
       font-weight: 400;
     }
+
+    /* Adiciona classe para o menu quando aberto */
+    &.menu-open {
+      @media (max-width: 460px) {
+        display: block !important;
+      }
+    }
   }
 
+  /* Regras para o modo mobile */
   @media (max-width: 460px) {
-    // Adicione esta regra de mídia para telas menore (mobile)
     width: 100%;
     max-width: 455px;
-    height: 66px;
+    /* Altura varia de acordo com o estado do $showMobileSearch */
+    height: ${props => (props.$showMobileSearch ? '192px' : '66px')};
     padding: 20px;
+    transition: height 0.4s ease;
   }
 
   .dropshadow {
@@ -177,14 +191,47 @@ export const Container = styled.header`
       align-items: center;
       justify-content: center;
       position: absolute;
-      right: 48px;
+      left: 0;
       gap: 2px;
+
+      /* Estilos para o input quando visível no mobile */
+      & input {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      /* Classe adicionada quando o input está ativo no mobile */
+      & input.mobile-search-active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     }
 
     .search-icon {
       @media (max-width: 460px) {
         margin-left: 0px;
         display: flex;
+        /* Garantir que o ícone fique em cima do input */
+        z-index: 101;
+        position: absolute;
+        left: 285px;
       }
     }
   }

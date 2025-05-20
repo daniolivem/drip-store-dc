@@ -1,31 +1,43 @@
+import QueimaEstoque from '../../assets/images/queima-estoque.png';
+import WhiteSneakers from '../../assets/images/white-sneakers.svg';
+import OrnamentImg from '../../assets/icons/Ornament.png';
+import { ButtonPrimary } from '../Buttons/styles';
+import { Container } from './styles';
+
 const Gallery = () => {
   return (
     <Container>
-      <div className='gallery'>
-        <div className='gallery-item'>
-          <img src={image1} alt='Imagem 1' />
+      <div className='content-gallery'>
+        <div className='content-info'>
+          <h2>Melhores ofertas personalizadas</h2>
+          <div className='content-image-text'>
+            <img src={QueimaEstoque} alt='Texto com uma imagem de fogo' />
+          </div>
+
+          <p>
+            Consequat culpa exercitation mollit nisi excepteur do do tempor
+            laboris eiusmod irure consectetur.
+          </p>
+
+          <ButtonPrimary $mobile $desktop>
+            Ver Ofertas
+          </ButtonPrimary>
         </div>
-        <div className='gallery-item'>
-          <img src={image2} alt='Imagem 2' />
+
+        <div className='content-image'>
+          <img src={WhiteSneakers} alt='Tênis branco' />
         </div>
-        <div className='gallery-item'>
-          <img src={image3} alt='Imagem 3' />
+
+        <div className='content-image-icon'>
+          <img src={OrnamentImg} alt='Desenho de estrelas amarelas' />
         </div>
-        <div className='gallery-item'>
-          <img src={image4} alt='Imagem 4' />
-        </div>
-        <div className='gallery-item'>
-          <img src={image5} alt='Imagem 5' />
-        </div>
-        <div className='gallery-item'>
-          <img src={image6} alt='Imagem 6' />
-        </div>
-        <div className='gallery-item'>
-          <img src={image7} alt='Imagem 7' />
-        </div>
-        <div className='gallery-item'>
-          <img src={image8} alt='Imagem 8' />
-        </div>
+      </div>
+
+      <div className='content-setas'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </Container>
   );

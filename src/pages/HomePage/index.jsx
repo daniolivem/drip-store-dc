@@ -9,6 +9,7 @@ import Sneakers from '../../assets/images/sneakers.png';
 import Chap from '../../assets/images/chap.png';
 import Headphone from '../../assets/images/headphone.png';
 import { ButtonSecundary } from '../../components/Buttons/styles';
+import Gallery from '../../components/Gallery';
 
 const cardsCircle = [
   {
@@ -43,10 +44,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Section title='Coleções em destaque'>
-        <div>Galery</div>
-      </Section>
-
+      <Gallery />
       <Section title='Coleçoes em destaque'>
         <ContentCard>
           <div className='card'>
