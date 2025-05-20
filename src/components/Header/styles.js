@@ -85,6 +85,7 @@ export const Container = styled.header`
       gap: 70px;
     }
 
+
     & input {
       @media (max-width: 460px) {
         display: none;

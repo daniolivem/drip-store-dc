@@ -57,7 +57,7 @@ const LoginPage = () => {
                 </div>
                 {/* Formulário de login */}
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="form-group">
                         {/* Campo de email */}
                         <label htmlFor="email">Login *</label>
                         <input className='input'
@@ -69,9 +69,9 @@ const LoginPage = () => {
                             onChange={handleChange}
                             placeholder="Insira seu login ou email" />
                         {/* Exibe mensagem de erro do email, se houver */}
-                        {errors.email && <p>{errors.email}</p>}
+                        <p className="error-message">{errors.email || '\u00A0'}</p>
                     </div>
-                    <div>
+                    <div className="form-group">
                         {/* Campo de senha */}
                         <label htmlFor="password">Senha *</label>
                         <input className='input'
@@ -83,7 +83,7 @@ const LoginPage = () => {
                             onChange={handleChange}
                             placeholder="Insira sua senha" />
                         {/* Exibe mensagem de erro da senha, se houver */}
-                        {errors.password && <p>{errors.password}</p>}
+                        <p className="error-message">{errors.password || '\u00A0'}</p>
                     </div>
                     <div>
                         <div>

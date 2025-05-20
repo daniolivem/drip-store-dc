@@ -3,11 +3,14 @@ import { Routes, Route, Form } from 'react-router-dom';
 import Layout from './pages/Layout';
 import FormCreatePage from "./pages/FormCreatePage";
 import OrderTracking from './components/OrderTracking';
+import HeaderWrapper from './components/HeaderWrapper';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const CreateAccountInitialPage = lazy(() => import('./pages/CreateAccountInitialPage'));
+
+
 
 const App = () => {
   return (
@@ -57,6 +60,7 @@ const App = () => {
           path='/login'
           element={
             <Layout>
+            
               <LoginPage />
             </Layout>
           }
@@ -65,6 +69,7 @@ const App = () => {
           path='/register'
           element={
             <Layout>
+              
               <CreateAccountInitialPage />
             </Layout>
           }
@@ -73,6 +78,7 @@ const App = () => {
           path='/criar-conta'
           element={
             <Layout>
+              
               <FormCreatePage />
             </Layout>
           }
