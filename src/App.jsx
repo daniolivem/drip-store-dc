@@ -1,11 +1,13 @@
-
 import { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Form } from 'react-router-dom';
 import Layout from './pages/Layout';
-
+import FormCreatePage from "./pages/FormCreatePage";
+import OrderTracking from './components/OrderTracking';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const CreateAccountInitialPage = lazy(() => import('./pages/CreateAccountInitialPage'));
 
 const App = () => {
   return (
@@ -35,7 +37,6 @@ const App = () => {
             </Layout>
           }
         />
-
         <Route
           path='/categorias'
           element={
@@ -44,21 +45,41 @@ const App = () => {
             </Layout>
           }
         />
-
         <Route
           path='/orders'
-          element={<Layout>{<div>Meus Pedidos</div>}</Layout>}
+          element={
+            <Layout>
+              <OrderTracking />
+            </Layout>
+          }
         />
         <Route
           path='/login'
-          element={<Layout>{<div>Já tem uma conta? Faça Login!</div>}</Layout>}
+          element={
+            <Layout>
+              <LoginPage />
+            </Layout>
+          }
         />
         <Route
           path='/register'
-          element={<Layout>{<div>Não possui conta? Cadastre-se!</div>}</Layout>}
+          element={
+            <Layout>
+              <CreateAccountInitialPage />
+            </Layout>
+          }
+        />
+        <Route
+          path='/criar-conta'
+          element={
+            <Layout>
+              <FormCreatePage />
+            </Layout>
+          }
         />
       </Routes>
     </Suspense>
   );
 };
+
 export default App;

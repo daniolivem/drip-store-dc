@@ -6,11 +6,11 @@ Este projeto faz parte do curso de Front-End e será desenvolvido em equipe por 
 
 ## 👥 Equipe
 
-| Membro | Nome       | Responsabilidade Principal        |
-| ------ | ---------- | --------------------------------- |
-| 👤 1   | [Anderson] | Layout geral + Página Inicial     |
-| 👤 2   | [Dani] | Footer + ...    |
-| 👤 3   | [Colega 2] | Página de Visualização do Produto |
+| Membro | Nome         | Responsabilidade Principal                                      |
+| ------ | ------------ | --------------------------------------------------------------- |
+| 👤 1   | [Anderson]   | Layout geral + Página Inicial                                   |
+| 👤 2   | [Dani]       | Footer + Order Tracking + FormCreatePage + CreateAccountInitialPage + LoginPage |
+| 👤 3   | [Colega 2]   | Página de Visualização do Produto                               |
 
 > Observação: todos podem revisar e ajudar nas tarefas uns dos outros via Pull Request!
 
@@ -59,9 +59,8 @@ src/
 
 **Responsável por:**
 
-- Componente `Layout` (envolve `<Header />`, `<Footer />` e `children`)
+- Componente `Layout` (envolve `<Header />` e `children`)
 - Componente `<Header />` (logo, campo de busca, login/cadastro, navegação, ícone do carrinho)
-- Componente `<Footer />` (logo, informações, redes sociais, direitos autorais)
 - Página `/` (Home):
   - Slide com `<Gallery />`
   - Coleções em destaque
@@ -69,19 +68,20 @@ src/
 
 [--------------------------------------------------------------------------------------------------]
 
-### 👤 Pessoa 2 - Página de Listagem de Produtos
+### 👤 [DANI] - Components + Pages
 
-📁 Diretório: `src/pages/ProductListingPage`
+📁 Diretório: `src/pages`
+📁 Diretório: `src/assets/components`
 
 **Responsável por:**
-
-- Página `/produtos` com:
-  - Campo de ordenação
-  - Filtros com `<FilterGroup />`
-  - Lista de produtos com `<ProductListing />`
-  - Título dinâmico com total de produtos
-- Lógica para aplicar filtro e ordenação com base em estado
-
+- Components:
+  - Componente `<Footer />` (logo, informações, redes sociais, direitos autorais);
+  - Componente `<OrderTrackin />` (Seção de pedidos);
+- Páginas:
+  - `/CreateAccountInitialPage`
+  - `/CreateFormPage`
+  - `/LoginPage` 
+  
 ---
 
 ### 👤 Pessoa 3 - Página de Visualização do Produto
