@@ -88,7 +88,11 @@ const Header = () => {
 
             <img src={CartImage} alt='Imagem do carrinho de compras' />
           </div>
-           <nav className='header-nav'>
+
+        </div>
+
+        <nav className={`header-nav ${isMenuOpen ? 'menu-open' : ''}`}>
+
           <ul>
             <StyledNavLink to='/'>Home</StyledNavLink>
             <StyledNavLink to='/produtos'>Produtos</StyledNavLink>
