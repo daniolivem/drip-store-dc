@@ -5,7 +5,7 @@ import SearchIcon from '../../assets/icons/Search.svg';
 import MenuIcon from '../../assets/icons/Menu.svg';
 import MenuVertIcon from '../../assets/icons/Menu-vertical.svg';
 import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { PrimaryBtn } from '../Buttons';
 
 const Header = () => {
@@ -13,21 +13,21 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+
+  
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
     setShowMenu(!showMenu);
   };
 
-  // Função para lidar com a mudança no campo de pesquisa
   const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  // Função para lidar com a pesquisa
   const handleSearch = () => {
     if (searchTerm.trim()) {
-      // Formata o termo de busca para a URL (substitui espaços por hifens e converte para minúsculas)
       const formattedSearchTerm = searchTerm
         .trim()
         .toLowerCase()
@@ -36,15 +36,17 @@ const Header = () => {
     }
   };
 
-  // Função para lidar com a tecla Enter
   const handleKeyPress = event => {
     if (event.key === 'Enter') {
       handleSearch();
     }
   };
 
+
+  // Header completo para as demais páginas
   return (
-    <Container className='header'>
+    
+<Container className="header">
       <div className='dropshadow'>
         <div className='header-main'>
           <button className='menu-button' onClick={handleMenuClick}>
@@ -86,9 +88,7 @@ const Header = () => {
 
             <img src={CartImage} alt='Imagem do carrinho de compras' />
           </div>
-        </div>
-
-        <nav className='header-nav'>
+           <nav className='header-nav'>
           <ul>
             <StyledNavLink to='/'>Home</StyledNavLink>
             <StyledNavLink to='/produtos'>Produtos</StyledNavLink>
@@ -96,6 +96,9 @@ const Header = () => {
             <StyledNavLink to='/orders'>Meus Pedidos</StyledNavLink>
           </ul>
         </nav>
+        </div>
+
+       
       </div>
     </Container>
   );
