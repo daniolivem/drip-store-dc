@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     --error-color: #EE4266;
     --success-color: #52CA76;
     --warning-color: #F6AA1C;
+    --card-destaque-color: #D8E3F2;
+    --card-tag-color: #E7FF86;
 
     /* Grayscales (Tons de cinza) */
     --dark-gray: #1f1f1f;
@@ -19,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     --light-gray: #8f8f8f;
     --light-gray-2: #CCCCCC;
     --light-gray-3: #F5F5F5;
+    --light-gray-4: #F7F7FC;
     --white: #FFFFFF;
   }
 
@@ -32,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--bg-main);
     font-size: 1rem;
+  }
+
+  html {
+    min-height: 100%;
   }
 
   input, textarea, button, a, ul {
