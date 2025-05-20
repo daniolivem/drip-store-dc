@@ -17,6 +17,7 @@ export const Container = styled.header`
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    transition: height 0.3s ease;
   }
 
   .header-main {
@@ -117,6 +118,142 @@ export const Container = styled.header`
       line-height: 28px;
       letter-spacing: 0.75px;
       font-weight: 400;
+    }
+
+    /* Adiciona classe para o menu quando aberto */
+    &.menu-open {
+      @media (max-width: 460px) {
+        display: block !important;
+      }
+    }
+  }
+
+  /* Regras para o modo mobile */
+  @media (max-width: 460px) {
+    width: 100%;
+    max-width: 455px;
+    /* Altura varia de acordo com o estado do $showMobileSearch */
+    height: ${props => (props.$showMobileSearch ? '192px' : '66px')};
+    padding: 20px;
+    transition: height 0.4s ease;
+  }
+
+  .dropshadow {
+    @media (max-width: 460px) {
+      padding: 0;
+      width: 100%;
+      max-width: 425px;
+    }
+  }
+
+  .header-main {
+    @media (max-width: 460px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-buttons {
+      @media (max-width: 460px) {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: baseline;
+        gap: 0px;
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .menu-button {
+      display: none;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+
+      @media (max-width: 460px) {
+        display: block;
+      }
+    }
+  }
+
+  .header-main .search-input {
+    @media (max-width: 460px) {
+      width: 6%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      gap: 2px;
+
+      /* Estilos para o input quando visível no mobile */
+      & input {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      /* Classe adicionada quando o input está ativo no mobile */
+      & input.mobile-search-active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .search-icon {
+      @media (max-width: 460px) {
+        margin-left: 0px;
+        display: flex;
+        /* Garantir que o ícone fique em cima do input */
+        z-index: 101;
+        position: absolute;
+        left: 285px;
+      }
+    }
+  }
+
+  .dropshadow .header-nav {
+    @media (max-width: 460px) {
+      width: 100%;
+      max-height: 400px;
+      height: 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      display: none;
+    }
+
+    & ul {
+      @media (max-width: 460px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0px;
+        position: absolute;
+        left: 0;
+        padding: 0 20px;
+      }
     }
   }
 
