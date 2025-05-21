@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background: var(--secondary-gradient, linear-gradient(180deg, #B5B6F2 0%, #EFEFFF 100%));
     overflow-x: hidden;
