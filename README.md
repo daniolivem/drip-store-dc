@@ -61,6 +61,7 @@ src/
 
 - Componente `Layout` (envolve `<Header />` e `children`)
 - Componente `<Header />` (logo, campo de busca, login/cadastro, navegação, ícone do carrinho)
+- Componente `<Footer />` (responsivity e styled-components);
 - Página `/` (Home):
   - Slide com `<Gallery />`
   - Coleções em destaque
@@ -75,12 +76,14 @@ src/
 
 **Responsável por:**
 - Components:
-  - Componente `<Footer />` (logo, informações, redes sociais, direitos autorais);
-  - Componente `<OrderTrackin />` (Seção de pedidos);
-- Páginas:
-  - `/CreateAccountInitialPage`
-  - `/CreateFormPage`
-  - `/LoginPage` 
+  - Componente `<Footer />` + CSS (logo, informações, redes sociais, direitos autorais);
+  - Componente `<UserDashboard/>` + CSS  (Perfil, pedidos, informações e pagamentos);
+- Páginas :
+  - `/CreateAccountInitialPage` + CSS 
+  - `/CreateFormPage` + CSS 
+  - `/LoginPage` + CSS 
+- Imagens:
+  - Remoção de background  
   
 ---
 
