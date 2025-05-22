@@ -74,20 +74,22 @@ export const Container = styled.header`
       gap: 70px;
     }
 
-    & a {
-      @media (max-width: 1400px) {
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 460px) {
-        display: none;
-      }
+    @media (max-width: 460px) {
+      display: none;
     }
 
-    & .search-icon img {
-      @media (max-width: 460px) {
-        width: 20px;
-      }
+    @media (max-width: 1400px) {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 460px) {
+      display: none;
+    }
+  }
+
+  & .search-icon img {
+    @media (max-width: 460px) {
+      width: 20px;
     }
   }
 
@@ -222,6 +224,100 @@ export const Container = styled.header`
         z-index: 101;
         position: absolute;
         left: 285px;
+      }
+    }
+  }
+
+  .dropshadow .header-nav {
+    @media (max-width: 460px) {
+      width: 100%;
+      max-height: 400px;
+      height: 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      display: none;
+    }
+
+    & ul {
+      @media (max-width: 460px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0px;
+        position: absolute;
+        left: 0;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  @media (max-width: 460px) {
+    // Adicione esta regra de mídia para telas menore (mobile)
+    width: 100%;
+    max-width: 455px;
+    height: 66px;
+    padding: 20px;
+  }
+
+  .dropshadow {
+    @media (max-width: 460px) {
+      padding: 0;
+      width: 100%;
+      max-width: 425px;
+    }
+  }
+
+  .header-main {
+    @media (max-width: 460px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-buttons {
+      @media (max-width: 460px) {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: baseline;
+        gap: 0px;
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .menu-button {
+      display: none;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+
+      @media (max-width: 460px) {
+        display: block;
+      }
+    }
+  }
+
+  .header-main .search-input {
+    @media (max-width: 460px) {
+      width: 6%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 48px;
+      gap: 2px;
+    }
+
+    .search-icon {
+      @media (max-width: 460px) {
+        margin-left: 0px;
+        display: flex;
       }
     }
   }

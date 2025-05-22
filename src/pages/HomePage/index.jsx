@@ -8,6 +8,7 @@ import Pants from '../../assets/images/pants.png';
 import Sneakers from '../../assets/images/sneakers.png';
 import Chap from '../../assets/images/chap.png';
 import Headphone from '../../assets/images/headphone.png';
+
 import {
   ButtonPrimary,
   ButtonSecundary,
@@ -18,6 +19,8 @@ import Thumb1 from '../../public/product-thumb-1.svg';
 import Thumb3 from '../../public/product-thumb-3.svg';
 import Thumb4 from '../../public/product-thumb-4.svg';
 import MarketingBottom from '../../public/nike-bottom.png';
+
+import { ButtonSecundary } from '../../components/Buttons/styles';
 
 const cardsCircle = [
   {
@@ -114,6 +117,11 @@ const HomePage = () => {
     <div>
       <Gallery />
       {/* Seção de Coleções em destaque (cards) */}
+
+      <Section title='Coleções em destaque'>
+        <div>Galery</div>
+      </Section>
+
       <Section title='Coleçoes em destaque'>
         <ContentCard>
           <div className='card'>

@@ -4,7 +4,11 @@ import { BtnNavLink, Container, StyledNavLink } from './styles';
 import SearchIcon from '../../assets/icons/Search.svg';
 import MenuIcon from '../../assets/icons/Menu.svg';
 import MenuVertIcon from '../../assets/icons/Menu-vertical.svg';
+
 import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
+
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { PrimaryBtn } from '../Buttons';
 import { InputDefault } from '../Input';
@@ -13,9 +17,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  // Estado para controlar a visibilidade do campo de pesquisa
-  const [showSearch, setShowSearch] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 460);
   const navigate = useNavigate();
 
   // Obter a localização atual
@@ -59,45 +60,28 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  // Função para lidar com a mudança no campo de pesquisa
   const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  // Função para mostrar ou ocultar o campo de pesquisa
-  const toggleSearch = () => {
-    // No modo mobile, alternamos a visibilidade do campo de pesquisa
-    if (isMobile) {
-      setShowSearch(!showSearch);
-    }
-  };
-
-  // Função para lidar com a pesquisa
   const handleSearch = () => {
     if (searchTerm.trim()) {
-      // Formata o termo de busca para a URL (substitui espaços por hifens e converte para minúsculas)
       const formattedSearchTerm = searchTerm
         .trim()
         .toLowerCase()
         .replace(/\s+/g, '-');
       navigate(`/products?filter=${formattedSearchTerm}`);
     }
-
-    // Se estiver no modo mobile e tiver um termo de busca, esconde o campo depois de buscar
-    if (isMobile && searchTerm.trim()) {
-      setShowSearch(false);
-    }
   };
 
-  // Função para lidar com a tecla Enter
   const handleKeyPress = event => {
     if (event.key === 'Enter') {
       handleSearch();
     }
   };
 
+  // Header completo para as demais páginas
   return (
-    // Passamos o estado showSearch como prop para o Container para controlar a altura no mobile
     <Container $showMobileSearch={showSearch} $isAuthPage={isAuthPage}>
       <div className='dropshadow'>
         <div className='header-main'>
@@ -139,8 +123,6 @@ const Header = () => {
 
                 <div
                   className='search-icon'
-                  // No mobile, ao clicar na lupa, alternamos a visibilidade do campo
-                  // No desktop, executamos a pesquisa
                   onClick={isMobile ? toggleSearch : handleSearch}
                 >
                   <img src={SearchIcon} alt='Ícone de pesquisa' />
