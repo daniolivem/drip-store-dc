@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 681px;
-  padding: 78px 37px 0 100px;
+  padding: 78px 37px 0px 100px;
   background-color: var(--light-gray-3);
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   .content-gallery {
     width: 100%;
-    max-width: 1303px;
+    max-width: 1440px;
     height: 398px;
     display: flex;
     justify-content: space-around;

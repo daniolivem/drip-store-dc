@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import QueimaEstoque from '../../assets/images/queima-estoque.png';
+import OrnamentImg from '../../assets/icons/Ornament.png';
 import { ButtonPrimary } from '../Buttons/styles';
 import { Container } from './styles';
+
 import Slide01 from '../../assets/bg-removed/home-slide-01.svg';
+
 import Slide3 from '../../assets/bg-removed/home-slide-3.png';
 import Slide4 from '../../assets/bg-removed/home-slide-4.png';
+import Slide5 from '../../assets/bg-removed/home-slide-5.png';
 import Slide6 from '../../assets/bg-removed/home-slide-6.png';
 import Slide7 from '../../assets/bg-removed/home-slide-7.png';
 import Slide8 from '../../assets/bg-removed/home-slide-8.png';
-import Slide9 from '../../assets/bg-removed/home-slide-9.svg';
 
 // Array com todos os slides disponíveis
 const slides = [
@@ -96,52 +100,30 @@ const Gallery = () => {
             alt={`Tênis ${slides[currentSlide].title}`}
             className='slide-image'
           />
-
-          <div className='gallery'>
-            <div className='gallery-item'>
-              <img src={image1} alt='Imagem 1' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image2} alt='Imagem 2' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image3} alt='Imagem 3' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image4} alt='Imagem 4' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image5} alt='Imagem 5' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image6} alt='Imagem 6' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image7} alt='Imagem 7' />
-            </div>
-            <div className='gallery-item'>
-              <img src={image8} alt='Imagem 8' />
-            </div>
-          </div>
-
-          {/* Indicadores de slide ( as bolinhas) */}
-          <div className='content-setas'>
-            {/* Mapeando o array de slides para criar um indicador para cada slide */}
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                // Aplicando uma classe ativa para o slide atual
-                className={currentSlide === index ? 'active' : ''}
-                // Ao clicar, mudamos para o slide correspondente
-                onClick={() => goToSlide(index)}
-                // Adicionando um atributo de título para acessibilidade
-                title={`Ver ${slide.title}`}
-              ></div>
-            ))}
-          </div>
         </div>
+
+        <div className='content-image-icon'>
+          <img src={OrnamentImg} alt='Desenho de estrelas amarelas' />
+        </div>
+      </div>
+
+      {/* Indicadores de slide ( as bolinhas) */}
+      <div className='content-setas'>
+        {/* Mapeando o array de slides para criar um indicador para cada slide */}
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            // Aplicando uma classe ativa para o slide atual
+            className={currentSlide === index ? 'active' : ''}
+            // Ao clicar, mudamos para o slide correspondente
+            onClick={() => goToSlide(index)}
+            // Adicionando um atributo de título para acessibilidade
+            title={`Ver ${slide.title}`}
+          ></div>
+        ))}
       </div>
     </Container>
   );
 };
+
 export default Gallery;

@@ -20,8 +20,6 @@ import Thumb3 from '../../public/product-thumb-3.svg';
 import Thumb4 from '../../public/product-thumb-4.svg';
 import MarketingBottom from '../../public/nike-bottom.png';
 
-import { ButtonSecundary } from '../../components/Buttons/styles';
-
 const cardsCircle = [
   {
     id: 1,
@@ -116,12 +114,8 @@ const HomePage = () => {
   return (
     <div>
       <Gallery />
+
       {/* Seção de Coleções em destaque (cards) */}
-
-      <Section title='Coleções em destaque'>
-        <div>Galery</div>
-      </Section>
-
       <Section title='Coleçoes em destaque'>
         <ContentCard>
           <div className='card'>

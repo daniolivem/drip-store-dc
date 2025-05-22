@@ -19,7 +19,7 @@ export const Container = styled.header`
     flex-direction: column;
     align-items: center;
     gap: ${props => (props.$isAuthPage ? '0' : '40px')};
-    transition: all 0.3s ease;
+    transition: height 0.3s ease;
   }
 
   /* Estilo especial para centralizar a logo em páginas de autenticação */
@@ -99,7 +99,7 @@ export const Container = styled.header`
     height: 30px;
     position: absolute;
     top: 134px;
-    left: 340px;
+    left: 438px;
 
     & ul {
       display: flex;
@@ -257,8 +257,10 @@ export const Container = styled.header`
     // Adicione esta regra de mídia para telas menore (mobile)
     width: 100%;
     max-width: 455px;
-    height: 66px;
+    /* Altura varia de acordo com o estado do $showMobileSearch */
+    height: ${props => (props.$showMobileSearch ? '192px' : '66px')};
     padding: 20px;
+    transition: height 0.3s ease;
   }
 
   .dropshadow {
@@ -354,6 +356,10 @@ export const StyledNavLink = styled(NavLink)`
   &.active {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
+  }
+
+  @media (max-width: 460px) {
+    display: none;
   }
 `;
 
