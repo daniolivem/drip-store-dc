@@ -17,6 +17,11 @@ export const ButtonPrimary = styled.button`
     background-color: var(--tertiary-color);
   }
 
+  @media (max-width: 1400px) {
+    width: ${props => (props.$desktop ? '200' : '100px')};
+    height: ${props => (props.$desktop ? '40px' : '38px')};
+  }
+
   @media (max-width: 460px) {
     display: ${props => (props.$mobile ? 'block' : 'none')};
     width: 100%;

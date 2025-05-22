@@ -4,12 +4,21 @@ export const StyledSection = styled.section`
   width: 100%;
   max-width: 1440px;
   height: 100%;
-  padding: 38px 100px 100px;
+  padding-top: ${props => (props.$paddingBottom ? '0px' : '100px')};
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: ${props => props.$paddingBottom & '0px'};
   margin-left: 234px;
 
+  @media (max-width: 1400px) {
+    padding: 38px 30px;
+    margin-left: 0px;
+  }
+
   @media (max-width: 460px) {
-    padding: 42px 20px 80px;
-    margin-left: 8px;
+    padding-left: 10px;
+    padding-bottom: ${props => props.$paddingBottom & '0px'};
+    margin-left: 20px;
   }
 `;
 
@@ -21,6 +30,16 @@ export const SectionHeader = styled.div`
   flex-direction: ${props => (props.$align === 'center' ? 'column' : 'row')};
   width: 100%;
   max-width: 1440px;
+
+  @media (max-width: 1400px) {
+    max-width: 1215px;
+  }
+
+  @media (max-width: 460px) {
+    height: 24px;
+    margin-bottom: 20px;
+    padding-right: 21px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -32,12 +51,24 @@ export const SectionTitle = styled.h2`
   margin-bottom: 20px;
 
   @media (max-width: 460px) {
-    margin-bottom: 10px;
     font-size: 1rem;
+    margin-bottom: 0px;
   }
 `;
 
-export const SectionLink = styled.a``;
+export const SectionLink = styled.a`
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 460px) {
+    font-size: 0.8rem;
+  }
+`;
 
 export const SectionContent = styled.div`
   display: flex;
