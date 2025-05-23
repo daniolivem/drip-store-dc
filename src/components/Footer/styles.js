@@ -5,11 +5,10 @@ export const Container = styled.footer`
   background-color: var(--dark-gray);
   width: 100%;
   height: 454px;
-  padding: 72px 100px 0;
+  padding: 72px 100px 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 
   .footer-content {
     width: 100%;

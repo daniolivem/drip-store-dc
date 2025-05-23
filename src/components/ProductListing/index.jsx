@@ -1,8 +1,21 @@
-const ProductListing = () => {
+import ProductCard from '../ProductCard';
+import { Container } from './styles';
+
+const ProductListing = ({ products }) => {
   return (
-    <div>
-      <h1>Categorias</h1>
-    </div>
+    <Container>
+      <div className='content-limit'>
+        {products.map(product => (
+          <ProductCard
+            key={product.id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            priceDiscount={product.priceDiscount}
+          />
+        ))}
+      </div>
+    </Container>
   );
 };
 

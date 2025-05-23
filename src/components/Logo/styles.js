@@ -7,8 +7,13 @@ export const ContainerLogo = styled.div`
   width: 256px;
   align-items: center;
 
-  @media (max-width: 460px) {
+  @media (max-width: 1400px) {
     width: 170px;
+    height: 29.5px;
+  }
+
+  @media (max-width: 460px) {
+    width: 180px;
     height: 29.5px;
   }
 
@@ -21,24 +26,10 @@ export const ContainerLogo = styled.div`
 
   .icon-logo {
     width: 33px;
-
-    @media (max-width: 460px) {
-      width: 18px;
-      height: 18px;
-    }
-
-    @media (max-width: 800px) {
-      width: 24px;
-    }
   }
 
   .image-logo {
     width: 212px;
-
-    @media (max-width: 460px) {
-      width: 116px;
-      height: 24px;
-    }
   }
 
   /* Responsividade */
@@ -48,12 +39,44 @@ export const ContainerLogo = styled.div`
       // Adicione esta regra de mídia para telas menore (mobile)
       height: 18px;
     }
+    @media (max-width: 1400px) {
+      height: 24px;
+      width: 24px;
+    }
+
+    .icon-logo {
+      @media (max-width: 460px) {
+        width: 18px;
+        height: 18px;
+      }
+
+      @media (max-width: 1400px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   .content-image {
     @media (max-width: 460px) {
       // Adicione esta regra de mídia para telas menore (mobile)
+      height: 18px;
+    }
+
+    @media (max-width: 1400px) {
       height: 24px;
+      width: 120px;
+    }
+
+    .image-logo {
+      @media (max-width: 460px) {
+        width: 116px;
+        height: 24px;
+      }
+      @media (max-width: 1400px) {
+        width: 135px;
+        height: 24px;
+      }
     }
   }
 `;

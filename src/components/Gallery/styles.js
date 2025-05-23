@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 681px;
-  padding: 78px 37px 0 100px;
+  padding: 78px 37px 0px 100px;
   background-color: var(--light-gray-3);
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   .content-gallery {
     width: 100%;
-    max-width: 1303px;
+    max-width: 1440px;
     height: 398px;
     display: flex;
     justify-content: space-around;
@@ -23,6 +23,7 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: flex-start;
       gap: 24px;
+      z-index: 2; /* Garantindo que fique acima da imagem */
 
       h2 {
         font-size: 1rem;
@@ -35,6 +36,7 @@ export const Container = styled.div`
         font-weight: 400;
         line-height: 34px;
         color: var(--dark-gray-2);
+        max-width: 450px; /* Limitando largura do texto */
       }
     }
 
@@ -42,10 +44,15 @@ export const Container = styled.div`
       width: 100%;
       max-width: 733px;
       height: 431px;
+      position: relative;
+      overflow: hidden; /* Para garantir que imagens não ultrapassem o container */
 
-      img {
+      img.slide-image {
         width: 100%;
+        max-width: 600px;
         height: 100%;
+        object-fit: contain; /* Mantém a proporção da imagem */
+        transition: opacity 0.5s ease-in-out; /* Adiciona transição suave */
       }
     }
 
@@ -53,6 +60,7 @@ export const Container = styled.div`
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 1;
     }
   }
 
@@ -69,7 +77,13 @@ export const Container = styled.div`
       border-radius: 50%;
       background-color: var(--light-gray-2);
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    /* Estilo para o slide ativo */
+    div.active {
+      background-color: var(--primary-color);
+      transform: scale(1.2); /* Aumenta ligeiramente o tamanho */
     }
 
     div:hover {
@@ -99,15 +113,16 @@ export const Container = styled.div`
     .content-image {
       @media (max-width: 460px) {
         width: 100%;
-        max-width: 300px;
+        max-width: 240px;
         height: 220px;
         position: absolute;
         top: -7px;
-        right: 30px;
+        right: 60px;
 
         img {
           width: 100%;
           height: 100%;
+          object-fit: contain;
         }
       }
     }

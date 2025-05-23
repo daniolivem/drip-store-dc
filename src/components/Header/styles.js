@@ -3,21 +3,32 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   width: 100%;
-  height: 192px;
+  /* Altura diferente para páginas de autenticação */
+  height: ${props => (props.$isAuthPage ? '98px' : '192px')};
   background-color: var(--white);
   filter: drop-shadow(0 10px 30px 0 rgba(0, 0, 0, 0.5));
   display: flex;
   justify-content: center;
+  transition: height 0.3s ease;
 
   .dropshadow {
-    padding: 39px 100px 29px;
+    padding: ${props => (props.$isAuthPage ? '39px 0' : '39px 100px 29px')};
     width: 100%;
     max-width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: ${props => (props.$isAuthPage ? '0' : '40px')};
     transition: height 0.3s ease;
+  }
+
+  /* Estilo especial para centralizar a logo em páginas de autenticação */
+  .content-logo {
+    &.center-logo {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   .header-main {
@@ -33,28 +44,6 @@ export const Container = styled.header`
       justify-content: center;
       position: relative;
       gap: 48px;
-
-      & input {
-        width: 100%;
-        max-width: 559px;
-        height: 60px;
-        border-radius: 8px;
-        padding: 24px 16px;
-        background-color: var(--light-gray-3);
-      }
-
-      & input::placeholder {
-        font-weight: 400;
-        font-size: 1rem;
-        line-height: 28px;
-        letter-spacing: 0.75px;
-        color: var(--light-gray-2);
-        transition: border 0.3s ease-in-out;
-      }
-
-      & input:focus {
-        border: 1px solid var(--dark-gray-3);
-      }
 
       .search-icon {
         position: absolute;
@@ -85,23 +74,22 @@ export const Container = styled.header`
       gap: 70px;
     }
 
-
-    & input {
-      @media (max-width: 460px) {
-        display: none;
-      }
+    @media (max-width: 460px) {
+      display: none;
     }
 
-    & a {
-      @media (max-width: 460px) {
-        display: none;
-      }
+    @media (max-width: 1400px) {
+      font-size: 0.9rem;
     }
 
-    & .search-icon img {
-      @media (max-width: 460px) {
-        width: 20px;
-      }
+    @media (max-width: 460px) {
+      display: none;
+    }
+  }
+
+  & .search-icon img {
+    @media (max-width: 460px) {
+      width: 20px;
     }
   }
 
@@ -111,7 +99,7 @@ export const Container = styled.header`
     height: 30px;
     position: absolute;
     top: 134px;
-    left: 340px;
+    left: 438px;
 
     & ul {
       display: flex;
@@ -133,15 +121,18 @@ export const Container = styled.header`
   @media (max-width: 460px) {
     width: 100%;
     max-width: 455px;
-    /* Altura varia de acordo com o estado do $showMobileSearch */
-    height: ${props => (props.$showMobileSearch ? '192px' : '66px')};
+    /* Altura varia de acordo com o estado do $showMobileSearch e se é página de autenticação */
+    height: ${props => {
+      if (props.$isAuthPage) return '66px';
+      return props.$showMobileSearch ? '192px' : '66px';
+    }};
     padding: 20px;
     transition: height 0.4s ease;
   }
 
   .dropshadow {
     @media (max-width: 460px) {
-      padding: 0;
+      padding: ${props => (props.$isAuthPage ? '10px 0' : '0')};
       width: 100%;
       max-width: 425px;
     }
@@ -156,6 +147,10 @@ export const Container = styled.header`
     }
 
     .header-buttons {
+      @media (max-width: 1400px) {
+        gap: 20px;
+      }
+
       @media (max-width: 460px) {
         width: 10%;
         height: 100%;
@@ -262,8 +257,10 @@ export const Container = styled.header`
     // Adicione esta regra de mídia para telas menore (mobile)
     width: 100%;
     max-width: 455px;
-    height: 66px;
+    /* Altura varia de acordo com o estado do $showMobileSearch */
+    height: ${props => (props.$showMobileSearch ? '192px' : '66px')};
     padding: 20px;
+    transition: height 0.3s ease;
   }
 
   .dropshadow {
@@ -359,6 +356,10 @@ export const StyledNavLink = styled(NavLink)`
   &.active {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
+  }
+
+  @media (max-width: 460px) {
+    display: none;
   }
 `;
 
