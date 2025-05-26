@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const ButtonPrimary = styled.button`
   cursor: pointer;
   width: ${props => (props.$desktop ? '220px' : '114px')};
+  width: ${props => (props.$btnLogin ? '100%' : '')};
   height: ${props => (props.$desktop ? '48px' : '40px')};
+  height: ${props => (props.$btnLogin ? '48px' : '')};
   border-radius: 8px;
   background-color: var(--primary-color);
   font-weight: 700;

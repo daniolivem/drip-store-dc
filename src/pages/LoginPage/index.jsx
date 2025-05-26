@@ -4,6 +4,7 @@ import './styles.css';
 import pexels from '../../assets/images/pexels.svg';
 import pexels2 from '../../assets/images/pexels2.svg';
 import { InputDefault } from '../../components/Input';
+import { ButtonPrimary } from '../../components/Buttons/styles';
 
 // Componente principal da página de login
 const LoginPage = () => {
@@ -51,7 +52,7 @@ const LoginPage = () => {
     <>
       <div className='container'>
         <div className='limit-container'>
-          <div className='container-form'>
+          <form onSubmit={handleSubmit} className='container-form'>
             <div className='container-title'>
               {/* Título e link para registro */}
               <h3 className='login-title'>Acesse sua conta</h3>
@@ -61,7 +62,7 @@ const LoginPage = () => {
             </div>
 
             {/* Formulário de login */}
-            <form onSubmit={handleSubmit}>
+            <div className='container-inputs'>
               <div>
                 {/* Campo de email */}
                 <label htmlFor='email'>Login *</label>
@@ -74,10 +75,12 @@ const LoginPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder='Insira seu login ou email'
+                  $inputLogin
                 />
                 {/* Exibe mensagem de erro do email, se houver */}
                 {errors.email && <p>{errors.email}</p>}
               </div>
+
               <div>
                 {/* Campo de senha */}
                 <label htmlFor='password'>Senha *</label>
@@ -90,23 +93,31 @@ const LoginPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder='Insira sua senha'
+                  $inputLogin
                 />
                 {/* Exibe mensagem de erro da senha, se houver */}
                 {errors.password && <p>{errors.password}</p>}
               </div>
-              <div>
-                <div>
-                  {/* Link para recuperação de senha */}
-                  <Link to='/forgot-password'>
-                    <p className='forgot-password'>Esqueci minha senha?</p>
-                  </Link>
-                </div>
-              </div>
-              {/* Botão de envio do formulário, desabilitado enquanto está enviando */}
-              <button className='button' type='submit' disabled={isSubmitting}>
+            </div>
+
+            <div className='container-forgot-password'>
+              {/* Link para recuperação de senha */}
+              <Link to='/forgot-password'>
+                <p className='forgot-password'>Esqueci minha senha?</p>
+              </Link>
+            </div>
+
+            {/* Botão de envio do formulário, desabilitado enquanto está enviando */}
+            <div className='container-button'>
+              <ButtonPrimary
+                $btnLogin
+                $mobile
+                type='submit'
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? 'Entrando...' : 'Acessar Conta'}
-              </button>
-            </form>
+              </ButtonPrimary>
+            </div>
 
             <div className='container-social'>
               <div>
@@ -177,16 +188,17 @@ const LoginPage = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </form>
 
-          <div className='container-image1'>
-            {/* Imagem de fundo da página de login */}
-            <img src={pexels} alt='Imagem de fundo' />
-          </div>
-
-          <div className='container-image2'>
-            {/* Imagem de fundo da página de login */}
-            <img src={pexels2} alt='Imagem de fundo' />
+          <div className='container-images'>
+            <div className='container-image1'>
+              {/* Imagem de fundo da página de login */}
+              <img src={pexels} alt='Imagem de fundo' />
+            </div>
+            <div className='container-image2'>
+              {/* Imagem de fundo da página de login */}
+              <img src={pexels2} alt='Imagem de fundo' />
+            </div>
           </div>
         </div>
       </div>

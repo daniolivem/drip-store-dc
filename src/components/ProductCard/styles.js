@@ -6,6 +6,8 @@ export const Container = styled.div`
   gap: 8px;
   width: 100%;
   max-width: 292px;
+  height: 100%;
+  max-height: 439px;
   cursor: pointer;
   transition: transform 0.3s ease;
 
@@ -86,11 +88,33 @@ export const Container = styled.div`
   }
 
   /* Responsividade */
-  @media (max-width: 768px) {
+  @media (max-width: 1400px) {
     max-width: 220px;
+    height: auto;
 
     .card-product {
-      height: 200px;
+      height: 265px;
+
+      img {
+        width: 190px;
+      }
+    }
+
+    h4 {
+      font-size: 1.1rem;
+    }
+
+    .card-info {
+      .original-price {
+        font-size: 1.3rem;
+        line-height: 28px;
+        letter-spacing: -0.75px;
+      }
+      .discount-price {
+        font-size: 1.3rem;
+        line-height: 28px;
+        letter-spacing: -0.75px;
+      }
     }
   }
 
@@ -100,6 +124,10 @@ export const Container = styled.div`
 
     .card-product {
       height: 160px;
+
+      img {
+        width: 120px;
+      }
     }
 
     h4 {

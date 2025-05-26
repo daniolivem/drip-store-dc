@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-const ProductCard = ({ image, name, price, priceDiscount }) => {
+const ProductCard = ({ image, name, price, priceDiscount, tagValue }) => {
   // Formatar os preços para exibição em formato R$ XX,XX
   const formatPrice = value => {
     return value.toLocaleString('pt-BR', {
@@ -12,7 +12,7 @@ const ProductCard = ({ image, name, price, priceDiscount }) => {
   return (
     <Container>
       <div className='card-product'>
-        <div className='discount'>30% Off</div>
+        {tagValue && <div className='discount'>{tagValue}</div>}
         <img src={image} alt={name} />
       </div>
 
@@ -22,8 +22,8 @@ const ProductCard = ({ image, name, price, priceDiscount }) => {
         {/* Se houver um preço com desconto, mostramos o preço original riscado */}
         {priceDiscount ? (
           <>
-            <p className='original-price'>R$ {formatPrice(price)}</p>
-            <p className='discount-price'>R$ {formatPrice(priceDiscount)}</p>
+            <p className='original-price'>$ {formatPrice(price)}</p>
+            <p className='discount-price'>$ {formatPrice(priceDiscount)}</p>
           </>
         ) : (
           // Se não houver desconto, mostramos apenas o preço normal

@@ -12,6 +12,7 @@ const ProductListing = ({ products }) => {
             name={product.name}
             price={product.price}
             priceDiscount={product.priceDiscount}
+            tagValue={product.tagValue}
           />
         ))}
       </div>

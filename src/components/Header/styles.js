@@ -26,7 +26,7 @@ export const Container = styled.header`
   .content-logo {
     &.center-logo {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
     }
   }
@@ -58,13 +58,6 @@ export const Container = styled.header`
         }
       }
       & a {
-        font-weight: 400;
-        line-height: 28px;
-        letter-spacing: 0.75px;
-        color: var(--light-gray);
-        text-decoration: underline 2px solid;
-        text-decoration-color: var(--light-gray);
-        text-underline-offset: 3px;
       }
     }
 
@@ -106,7 +99,6 @@ export const Container = styled.header`
       gap: 32px;
       line-height: 28px;
       letter-spacing: 0.75px;
-      font-weight: 400;
     }
 
     /* Adiciona classe para o menu quando aberto */
@@ -351,11 +343,26 @@ export const Container = styled.header`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: var(--dark-gray-2);
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  color: var(--light-gray);
+  transition: all 0.2s ease;
+  text-underline-offset: 4px;
 
+  &:hover {
+    color: var(--primary-color);
+    text-decoration: underline 2px solid;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 4px;
+  }
+
+  /* NOVO: Estilo para quando o link está ativo */
   &.active {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    text-decoration: underline 2px solid;
+    text-decoration-color: var(--primary-color);
+    font-weight: 700;
   }
 
   @media (max-width: 460px) {

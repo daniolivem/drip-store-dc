@@ -96,6 +96,18 @@ const Header = () => {
     }
   };
 
+  // NOVO: Função para determinar se um link está ativo
+  const isActiveLink = path => {
+    // Para a home, verificamos se estamos exatamente na raiz
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+
+    // Para outras rotas, verificamos se o pathname começa com o path
+    // Isso permite que /produtos/categoria também marque "Produtos" como ativo
+    return location.pathname.startsWith(path);
+  };
+
   return (
     // Passamos o estado showSearch como prop para o Container para controlar a altura no mobile
     <Container $showMobileSearch={showSearch} $isAuthPage={isAuthPage}>
@@ -117,7 +129,7 @@ const Header = () => {
           )}
 
           <div className={`content-logo ${isAuthPage ? 'center-logo' : ''}`}>
-            <Logo />
+            <Logo $isAuthPage />
           </div>
 
           {!isAuthPage && (
@@ -163,10 +175,35 @@ const Header = () => {
         {!isAuthPage && (
           <nav className={`header-nav ${isMenuOpen ? 'menu-open' : ''}`}>
             <ul>
-              <StyledNavLink to='/'>Home</StyledNavLink>
-              <StyledNavLink to='/produtos'>Produtos</StyledNavLink>
-              <StyledNavLink to='/categorias'>Categorias</StyledNavLink>
-              <StyledNavLink to='/orders'>Meus Pedidos</StyledNavLink>
+              {/* ATUALIZADO: Usando end prop para match exato na home */}
+              <StyledNavLink
+                to='/'
+                end
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                Home
+              </StyledNavLink>
+
+              <StyledNavLink
+                to='/produtos'
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                Produtos
+              </StyledNavLink>
+
+              <StyledNavLink
+                to='/categorias'
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                Categorias
+              </StyledNavLink>
+
+              <StyledNavLink
+                to='/orders'
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                Meus Pedidos
+              </StyledNavLink>
             </ul>
           </nav>
         )}

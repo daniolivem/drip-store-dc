@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   width: 100%;
-  max-width: 559px;
+  max-width: ${({ $inputLogin }) => ($inputLogin ? '523px' : '558px')};
   height: 60px;
   border-radius: 8px;
   padding: 24px 16px;
@@ -22,7 +22,7 @@ export const Input = styled.input`
     /* Estilos específicos para o input em mobile */
     transition: all 0.3s ease;
     width: 100%;
-    min-width: 315px;
+    min-width: ${({ $inputLogin }) => ($inputLogin ? '229px' : '315px')};
     height: 60px;
   }
 `;
