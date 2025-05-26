@@ -13,6 +13,7 @@ const ProductListing = ({ products }) => {
             price={product.price}
             priceDiscount={product.priceDiscount}
             tagValue={product.tagValue}
+            product={product} // Pass the entire product object
           />
         ))}
       </div>
