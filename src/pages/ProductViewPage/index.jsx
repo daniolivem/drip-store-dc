@@ -1,85 +1,116 @@
 import React, { useState } from 'react';
-import { Container } from './styles';
-import { useCart } from '../../contexts/CartContext'; // Import useCart hook
+import './styles.css'; 
+import { useCart } from '../../contexts/CartContext'; // Seu hook do carrinho
+
+// Cores dos backgrounds dos thumbnails, extraídas do seu ProductViewPage.css
+const THUMBNAIL_CSS_COLORS = [
+  '#E2E3FF', // Cor para o thumbnail :nth-child(1)
+  '#FFE8BC', // Cor para o thumbnail :nth-child(2)
+  '#FFC0BC', // Cor para o thumbnail :nth-child(3)
+  '#DEC699', // Cor para o thumbnail :nth-child(4)
+  '#E8DFCF', // Cor para o thumbnail :nth-child(5)
+];
 
 const ProductViewPage = () => {
-  const { addToCart } = useCart(); // Get addToCart from the hook
+  const { addToCart } = useCart();
 
-  // Mock product data (replace with actual data fetching later)
+  // Mock product data
   const product = {
     id: 1,
     name: 'Tênis Nike Revolution 6 Next Nature Masculino',
     price: 200.00,
-    priceDiscount: 100.00, // Based on the image, the original price is also 219.00
+    priceDiscount: 100.00,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    // Idealmente, você teria imagens diferentes para cada thumbnail/cor
     images: [
-      '/src/assets/images/tenis.png', 
-      '/src/assets/images/tenis.png', 
-      '/src/assets/images/tenis.png', 
-      '/src/assets/images/tenis.png',  
+      '/src/assets/images/tenis.png', // Imagem para thumbnail 1
+      '/src/assets/images/tenis.png', // Imagem para thumbnail 2 (ou tenis_variant2.png)
+      '/src/assets/images/tenis.png', // Imagem para thumbnail 3 (ou tenis_variant3.png)
+      '/src/assets/images/tenis.png', // Imagem para thumbnail 4 (ou tenis_variant4.png)
+      '/src/assets/images/tenis.png', // Imagem para thumbnail 5 (ou tenis_variant5.png)
     ],
     sizes: [39, 40, 41, 42, 43],
-    colors: ['#00FFFF', '#FF0000', '#800080', '#000000'], 
+    colors: ['#00FFFF', '#FF0000', '#800080', '#000000'], // Cores para os seletores de cor do produto
   };
 
   const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null); // Cor do produto selecionada nos swatches
   const [mainImage, setMainImage] = useState(product.images[0]);
+
+  // Estado para a cor de fundo do wrapper da imagem principal e índice do thumbnail ativo
+  const [mainImageBg, setMainImageBg] = useState(
+    THUMBNAIL_CSS_COLORS.length > 0 ? THUMBNAIL_CSS_COLORS[0] : 'transparent'
+  );
+  const [activeThumbnailIndex, setActiveThumbnailIndex] = useState(0);
+
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
   };
 
-  const handleColorSelect = (color) => {
+  // Handler para seleção de cor do produto (swatches)
+  const handleProductColorSelect = (color) => {
     setSelectedColor(color);
+    // Aqui você pode adicionar lógica se a seleção de cor do produto também deve mudar a imagem principal
+    // ou o fundo da imagem principal, se houver uma correspondência.
   };
 
-  const handleThumbnailClick = (image) => {
-    setMainImage(image);
-  };
-
-  const handleAddToCart = () => {
-    // Implement add to cart logic here
-    if (selectedSize && selectedColor) {
-      addToCart({ // Call addToCart with product details
-        ...product,
-        selectedSize,
-        selectedColor,
-        imageUrl: mainImage, // Use the current main image as the cart image
-      });
-      console.log('Adding to cart:', product.name, 'Size:', selectedSize, 'Color:', selectedColor);
+  // Handler para clique no thumbnail
+  const handleThumbnailClick = (imageSrc, index) => {
+    setMainImage(imageSrc);
+    setActiveThumbnailIndex(index);
+    if (THUMBNAIL_CSS_COLORS[index]) {
+      setMainImageBg(THUMBNAIL_CSS_COLORS[index]);
     } else {
-      alert('Please select a size and color before adding to cart.'); // Optional: Add user feedback
+      setMainImageBg('transparent'); // Fallback
     }
   };
 
-
-  // const relatedProducts = Array.from({ length: 4 }, (_, index) => ({
-  //   id: index + 101,
-  //   name: 'K-Swiss V8 - Masculino',
-  //   price: 200,
-  //   priceDiscount: 100,
-  //   image: '/public/product-thumb-1.svg', // Replace with actual image paths
-  // }));
+  const handleAddToCart = () => {
+    if (selectedSize && selectedColor) {
+      addToCart({
+        ...product, // Espalha as propriedades base do produto
+        price: product.priceDiscount, // Certifique-se de enviar o preço correto para o carrinho
+        selectedSize,
+        selectedColor, // Esta é a cor do produto selecionada nos swatches
+        imageUrl: mainImage,
+      });
+      console.log('Adding to cart:', product.name, 'Size:', selectedSize, 'Color:', selectedColor);
+    } else {
+      // Considerar substituir alert por um feedback de UI mais integrado
+      alert('Por favor, selecione um tamanho e uma cor antes de adicionar ao carrinho.');
+    }
+  };
 
   return (
-    <Container>
-      {/* Breadcrumb */}
+    // Usa a classe CSS definida em ProductViewPage.css
+    <div className="product-view-container">
       <div className="breadcrumb">
-        <span>Home</span> / <span>Produtos</span> / <span>{product.name}</span>
+        <span>Home</span><span>Produtos</span><span>{product.name}</span>
       </div>
-
+        <div className="product-title">
+        <p>Casual | Nike | REF:38416711</p>
+        </div>
       <div className="product-details-section">
         <div className="image-gallery">
-          <img src={mainImage} alt={product.name} className="main-image" />
+          {/* Wrapper para a imagem principal, com estilo para a variável CSS */}
+          <div
+            className="main-image-wrapper"
+            style={{ '--main-image-bg-color': mainImageBg }}
+          >
+            <img src={mainImage} alt={product.name} className="main-image" />
+          </div>
+
           <div className="thumbnails">
-            {product.images.map((image, index) => (
+            {/* Mapeia as imagens do produto, limitado pelo número de cores de thumbnail definidas */}
+            {product.images.slice(0, THUMBNAIL_CSS_COLORS.length).map((image, index) => (
               <img
                 key={index}
                 src={image}
                 alt={`${product.name} thumbnail ${index + 1}`}
-                className={`thumbnail ${image === mainImage ? 'active' : ''}`}
-                onClick={() => handleThumbnailClick(image)}
+                className={`thumbnail ${activeThumbnailIndex === index ? 'active' : ''}`}
+                onClick={() => handleThumbnailClick(image, index)}
+                // A cor de fundo do thumbnail em si é definida pelo CSS via :nth-child
               />
             ))}
           </div>
@@ -88,14 +119,21 @@ const ProductViewPage = () => {
         <div className="product-info">
           <h2>{product.name}</h2>
           <div className="rating">
-            {/* Add star rating component here */}
-            <span>4.7 (90 avaliações)</span>
+          
+            <link className="fa-star" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star"></span>
+            <span> 4.7 (90 avaliações)</span>
           </div>
           <div className="price-info">
-            {product.priceDiscount < product.price && (
+          <span className="current-price">R$ {product.priceDiscount.toFixed(2)}</span> &nbsp;
+            {product.price > product.priceDiscount && (
               <span className="original-price">R$ {product.price.toFixed(2)}</span>
             )}
-            <span className="current-price">R$ {product.priceDiscount.toFixed(2)}</span>
+            
           </div>
           <p className="description">{product.description}</p>
 
@@ -118,13 +156,13 @@ const ProductViewPage = () => {
             <div className="color-options">
               <h4>Cor</h4>
               <div className="color-swatches">
-                {product.colors.map((color, index) => (
+                {product.colors.map((colorValue, index) => (
                   <div
                     key={index}
-                    className={`color-swatch ${selectedColor === color ? 'selected' : ''}`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => handleColorSelect(color)}
-                  ></div>
+                    className={`color-swatch ${selectedColor === colorValue ? 'selected' : ''}`}
+                    style={{ backgroundColor: colorValue }}
+                    onClick={() => handleProductColorSelect(colorValue)}
+                  />
                 ))}
               </div>
             </div>
@@ -133,7 +171,9 @@ const ProductViewPage = () => {
           <button className="buy-button" onClick={handleAddToCart}>COMPRAR</button>
         </div>
       </div>
-    </Container>
+      {/* Você pode adicionar a seção de produtos relacionados aqui se necessário */}
+      {/* <div className="related-products-section"> ... </div> */}
+    </div>
   );
 };
 
