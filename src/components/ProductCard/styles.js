@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
   width: 100%;
   max-width: 292px;
@@ -76,8 +77,10 @@ export const Container = styled.div`
     align-items: center;
 
     .original-price {
-      color: var(--light-gray, #8F8F8F);
-      font-feature-settings: 'liga' off, 'clig' off;
+      color: var(--light-gray, #8f8f8f);
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Inter;
       font-size: 24px;
       font-style: normal;
@@ -88,8 +91,10 @@ export const Container = styled.div`
     }
 
     .discount-price {
-      color: var(--dark-gray, #1F1F1F);
-      font-feature-settings: 'liga' off, 'clig' off;
+      color: var(--dark-gray, #1f1f1f);
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Inter;
       font-size: 24px;
       font-style: normal;
@@ -131,14 +136,30 @@ export const Container = styled.div`
   }
 
   @media (max-width: 460px) {
-    max-width: 160px;
-    gap: 0px;
+    width: 100%;
+    min-width: 163px;
+    height: 290px;
+    align-items: flex-start;
+
+    a {
+      width: 100%;
+      max-width: 163px;
+    }
 
     .card-product {
-      height: 160px;
+      width: 100%;
+      padding: 0px;
+      height: 179px;
+
+      .discount {
+        left: 30px;
+      }
 
       img {
         width: 120px;
+        top: 40px;
+        left: 14px;
+        transform: rotate(-30deg);
       }
     }
 

@@ -1,9 +1,9 @@
 import ProductCard from '../ProductCard';
 import { Container } from './styles';
 
-const ProductListing = ({ products }) => {
+const ProductListing = ({ products, $isPageProducts }) => {
   return (
-    <Container>
+    <Container $isPageProducts={$isPageProducts}>
       <div className='content-limit'>
         {products.map(product => (
           <ProductCard

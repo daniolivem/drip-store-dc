@@ -1,85 +1,114 @@
 import './style.css';
-import tenis from '../../assets/images/tenis.png';
+import NikeImg from '../../assets/images/White-Sneakers.png';
+import ConfeteIcon from '../../assets/icons/confete.png';
+import { ButtonShop } from '../../components/Buttons/styles';
 
 const BuySuccessPage = () => {
   return (
-    <div>
+    <div class='container-main'>
       <div class='container'>
-        <div className='sect'>
-          <span>🎉 </span>
-        </div>
-        <div class='section'>
-          <h1>Compra Realizada com sucesso! </h1>
+        <div className='content-icon-title'>
+          <div class='confete-icon'>
+            <img src={ConfeteIcon} alt='Confete de festa' />
+          </div>
+
+          <div class='content-title'>
+            <h2>
+              Compra Realizada <br /> com sucesso!{' '}
+            </h2>
+          </div>
         </div>
 
-        <div class='section'>
+        <div class='linha-divisor'></div>
+
+        <div class='section-info'>
           <h2>Informações Pessoais</h2>
           <p>
-            Nome Completo:<strong> Francisco Antonio Pereira</strong>
+            <span>Nome:</span>
+            <strong> Francisco Antonio Pereira</strong>
           </p>
           <p>
-            CPF:<strong> 123485913-43</strong>
+            <span>CPF:</span>
+            <strong> 123485913-43</strong>
           </p>
           <p>
-            E-mail:<strong> francisco@gmail.com</strong>
+            <span>E-mail:</span>
+            <strong> francisco@gmail.com</strong>
           </p>
           <p>
-            Telefone:<strong> (85) 5555-5555</strong>
+            <span>Telefone:</span>
+            <strong> (85) 5555-5555</strong>
           </p>
         </div>
 
-        <div class='section'>
+        <div class='linha-divisor'></div>
+
+        <div class='section-info'>
           <h2>Informações de Entrega</h2>
           <p>
-            Endereço:<strong> Rua João Pessoa, 333</strong>
+            <span>Endereço:</span>
+            <strong> Rua João Pessoa, 333</strong>
           </p>
           <p>
-            Bairro:<strong> Centro</strong>
+            <span>Bairro:</span>
+            <strong> Centro</strong>
           </p>
           <p>
-            Cidade:<strong>Fortaleza, Ceará</strong>
+            <span>Cidade:</span>
+            <strong>Fortaleza, Ceará</strong>
           </p>
           <p>
-            CEP:<strong>433-8800</strong>
+            <span>CEP:</span>
+            <strong>433-8800</strong>
           </p>
         </div>
 
-        <div class='section'>
+        <div class='linha-divisor'></div>
+
+        <div class='section-payment'>
           <h2>Informações de Pagamento</h2>
           <p>
-            Titular do cartão :<strong>FRANCISCO A P</strong>
+            <span>Titular do cartão:</span>
+            <strong>FRANCISCO A P</strong>
           </p>
           <p>
-            Final: <strong> **** **** **** 1234</strong>
+            <span>Final:</span>
+            <strong> **** **** **** 1234</strong>
           </p>
         </div>
 
-        <div class='sectionresumo'>
+        <div class='linha-divisor'></div>
+
+        <div class='section-resumo'>
           <h4>Resumo da compra</h4>
+
           <div class='container-imagem-texto'>
             <div class='lado-esquerdo'>
-              <img src={tenis} alt='Ícone de menu' className='tenis' />
+              <img src={NikeImg} alt='Ícone de menu' className='tenis' />
             </div>
             <div class='lado-direito'>
-              <p>Tênis Nike Revolution 6 Next Nature Masculino </p>
+              <p>Tênis Nike Revolution 6 Next Nature</p>
+              <p>Masculino</p>
             </div>
           </div>
         </div>
+
         <div class='container-total-valor'>
-          <div class='total'>
+          <div class='total-valor'>
             <span>Total</span>
-          </div>
-          <div class='valor'>
             <span>R$ 219,00</span>
+          </div>
+          <div class='info-parcelas'>
             <p>ou 10x de 21,90 sem juros </p>
           </div>
         </div>
 
-        <div className='buttonimprimir'>
+        <div className='content-print'>
           <a href=''>Imprimir recibo</a>
         </div>
       </div>
-      <button className='botao'>Voltar para Home</button>
+
+      <ButtonShop>Voltar para Home</ButtonShop>
     </div>
   );
 };
