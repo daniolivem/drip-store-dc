@@ -171,8 +171,7 @@ const ProductViewPage = () => {
           <button className="buy-button" onClick={handleAddToCart}>COMPRAR</button>
         </div>
       </div>
-      {/* Você pode adicionar a seção de produtos relacionados aqui se necessário */}
-      {/* <div className="related-products-section"> ... </div> */}
+      
     </div>
   );
 };
