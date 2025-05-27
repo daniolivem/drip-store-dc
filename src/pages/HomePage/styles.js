@@ -7,6 +7,10 @@ export const ContentCard = styled.section`
   width: 100%;
   max-width: 1440px;
 
+  @media (max-width: 1400px) {
+    align-items: center;
+  }
+
   .card {
     width: 100%;
     max-width: 405px;
@@ -76,10 +80,6 @@ export const ContentCard = styled.section`
         }
       }
     }
-  }
-
-  @media (max-width: 1400px) {
-    justify-content: flex-start;
   }
 `;
 

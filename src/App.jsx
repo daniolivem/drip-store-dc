@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
 import FormCreatePage from './pages/FormCreatePage';
 import UserDashboard from './components/UserDashboard';
+import BuySuccessPage from './pages/BuySuccess';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
@@ -86,6 +87,14 @@ const App = () => {
           element={
             <Layout>
               <FormCreatePage />
+            </Layout>
+          }
+        />
+        <Route
+          path='/product-success'
+          element={
+            <Layout>
+              <BuySuccessPage />
             </Layout>
           }
         />

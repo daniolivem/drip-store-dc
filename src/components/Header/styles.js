@@ -26,6 +26,7 @@ export const Container = styled.header`
   .content-logo {
     &.center-logo {
       display: flex;
+      justify-content: flex-start;
       justify-content: left;
       margin-left: 48px;
       width: 100%;
@@ -59,13 +60,6 @@ export const Container = styled.header`
         }
       }
       & a {
-        font-weight: 400;
-        line-height: 28px;
-        letter-spacing: 0.75px;
-        color: var(--light-gray);
-        text-decoration: underline 2px solid;
-        text-decoration-color: var(--light-gray);
-        text-underline-offset: 3px;
       }
     }
 
@@ -76,30 +70,30 @@ export const Container = styled.header`
     }
 
     .cart-icon-container {
-        position: relative;
-        display: inline-block;
+      position: relative;
+      display: inline-block;
 
-        .cart-item-count {
-          position: absolute;
-          top: -10px; /* Adjust as needed */
-          right: -13px; /* Adjust as needed */
-          background-color: var(--pink); /* Use your pink color variable */
-          color:var(--white);
-          background-color:  #c92071;
-          border-radius: 50%;
-          padding: 2px 6px;
-          font-size: 12px;
-          font-weight: bold;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-width: 15px;
-          min-height: 15px;
-          width: 15px;
-          height: 15px;
-          line-height: 15px; 
-        }
+      .cart-item-count {
+        position: absolute;
+        top: -10px; /* Adjust as needed */
+        right: -13px; /* Adjust as needed */
+        background-color: var(--pink); /* Use your pink color variable */
+        color: var(--white);
+        background-color: #c92071;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 15px;
+        min-height: 15px;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
       }
+    }
 
     @media (max-width: 460px) {
       display: none;
@@ -133,7 +127,6 @@ export const Container = styled.header`
       gap: 32px;
       line-height: 28px;
       letter-spacing: 0.75px;
-      font-weight: 400;
     }
 
     /* Adiciona classe para o menu quando aberto */
@@ -378,11 +371,26 @@ export const Container = styled.header`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: var(--dark-gray-2);
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  color: var(--light-gray);
+  transition: all 0.2s ease;
+  text-underline-offset: 4px;
 
+  &:hover {
+    color: var(--primary-color);
+    text-decoration: underline 2px solid;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 4px;
+  }
+
+  /* NOVO: Estilo para quando o link está ativo */
   &.active {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    text-decoration: underline 2px solid;
+    text-decoration-color: var(--primary-color);
+    font-weight: 700;
   }
 
   @media (max-width: 460px) {

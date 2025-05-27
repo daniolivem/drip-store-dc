@@ -3,7 +3,10 @@ import styled from 'styled-components';
 export const ButtonPrimary = styled.button`
   cursor: pointer;
   width: ${props => (props.$desktop ? '220px' : '114px')};
+  width: ${props => (props.$btnAddToCart ? '100%' : '')};
+  width: ${props => (props.$btnLogin ? '100%' : '')};
   height: ${props => (props.$desktop ? '48px' : '40px')};
+  height: ${props => (props.$btnLogin ? '48px' : '')};
   border-radius: 8px;
   background-color: var(--primary-color);
   font-weight: 700;
@@ -24,7 +27,10 @@ export const ButtonPrimary = styled.button`
 
   @media (max-width: 460px) {
     display: ${props => (props.$mobile ? 'block' : 'none')};
-    width: 100%;
+    width: ${props => (props.$btnAddToCart ? '130px' : '')};
+    height: ${props => (props.$btnAddToCart ? '22px' : '')};
+    font-weight: ${props => (props.$btnAddToCart ? '500' : '700')};
+    font-size: ${props => (props.$btnAddToCart ? '0.6rem' : '0.85rem')};
     margin-top: 10px;
   }
 `;
@@ -49,4 +55,10 @@ export const ButtonSecundary = styled.button`
   }
 `;
 export const ButtonIcon = styled.button``;
-export const ButtonShop = styled.button``;
+export const ButtonShop = styled.button`
+  width: 100%;
+  max-width: 778px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: var(--warning-color);
+`;

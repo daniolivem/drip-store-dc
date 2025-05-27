@@ -29,7 +29,7 @@ export const ContainerLogo = styled.div`
   }
 
   .image-logo {
-    width: 212px;
+    width: ${props => (props.$isAuthPage ? '144px' : '212px')};
   }
 
   /* Responsividade */
