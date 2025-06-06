@@ -56,6 +56,7 @@ const products = [
     image: Thumb1,
     price: 200,
     priceDiscount: 140, // 30% de desconto: 200 - (200 * 0.3) = 140
+    tagValue: '30% Off',
   },
   {
     id: 2,
@@ -63,6 +64,7 @@ const products = [
     image: Thumb1,
     price: 150,
     priceDiscount: 105, // 30% de desconto: 150 - (150 * 0.3) = 105
+    tagValue: '30% Off',
   },
   {
     id: 3,

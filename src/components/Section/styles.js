@@ -18,7 +18,9 @@ export const StyledSection = styled.section`
   @media (max-width: 460px) {
     padding-left: 10px;
     padding-bottom: ${props => props.$paddingBottom & '0px'};
-    margin-left: 20px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 

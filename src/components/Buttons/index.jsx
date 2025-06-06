@@ -10,6 +10,6 @@ export const IconBtn = () => {
   return <ButtonIcon>{children}</ButtonIcon>;
 };
 
-export const ShopBtn = () => {
+export const ShopBtn = ({ children }) => {
   return <ButtonShop>{children}</ButtonShop>;
 };
