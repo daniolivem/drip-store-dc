@@ -10,7 +10,7 @@
 
 .container {
   width: 100%;
-  max-width: 838px;
+  
   height: 1048px;
   background-color: var(--white);
   padding: 30px;
