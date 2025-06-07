@@ -20,14 +20,14 @@ export const ButtonPrimary = styled.button`
     background-color: var(--tertiary-color);
   }
 
-  @media (max-width: 1400px) {
-    width: ${props => (props.$desktop ? '200' : '100px')};
+  @media (max-width: 1300px) {
+    width: ${props => (props.$desktop ? '200' : '100%')};
     height: ${props => (props.$desktop ? '40px' : '38px')};
   }
 
   @media (max-width: 460px) {
     display: ${props => (props.$mobile ? 'block' : 'none')};
-    width: ${props => (props.$btnAddToCart ? '130px' : '')};
+    width: ${props => (props.$btnAddToCart ? '130px' : '100%')};
     height: ${props => (props.$btnAddToCart ? '22px' : '')};
     font-weight: ${props => (props.$btnAddToCart ? '500' : '700')};
     font-size: ${props => (props.$btnAddToCart ? '0.6rem' : '0.85rem')};

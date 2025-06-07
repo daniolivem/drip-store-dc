@@ -1,8 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.css';
 
 const UserDashboard = () => {
   const [activeSection, setActiveSection] = useState('Meus Pedidos');
+  // Estado para controlar se estamos em mobile (útil para comportamentos específicos)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Hook para detectar mudanças no tamanho da tela
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Dados do usuário
   const userProfile = {
@@ -67,30 +79,25 @@ const UserDashboard = () => {
     <div>
       <h2 className='profile-title'>Meu Perfil</h2>
       <div className='profile-section'>
-        <div className='profile-label'>Nome:</div>
-        <div className='profile-info'>{userProfile.name}</div>
-        <div className='profile-label'>Email:</div>
-        <div className='profile-info'>{userProfile.email}</div>
+        <div>
+          <div className='profile-label'>Nome:</div>
+          <div className='profile-info'>{userProfile.name}</div>
+        </div>
+        <div>
+          <div className='profile-label'>Email:</div>
+          <div className='profile-info'>{userProfile.email}</div>
+        </div>
       </div>
     </div>
   );
 
-  // Componente para seção "Meus Pedidos"
+  // Componente para seção "Meus Pedidos" - Otimizado para responsividade
   const OrdersSection = () => (
     <div>
       <div className='header'>
         <h1>Meus Pedidos</h1>
-        <div className='status-header'>STATUS</div>
-        <svg
-          className='divider'
-          xmlns='http://www.w3.org/2000/svg'
-          width='832'
-          height='2'
-          viewBox='0 0 832 2'
-          fill='none'
-        >
-          <path d='M1 1H831' stroke='#CCCCCC' strokeLinecap='round' />
-        </svg>
+        {/* Só mostra o STATUS em telas maiores */}
+        {!isMobile && <div className='status-header'>STATUS</div>}
       </div>
 
       <div className='orders-list'>
@@ -112,56 +119,52 @@ const UserDashboard = () => {
     </div>
   );
 
-  // Componente para seção "Minhas Informações"
+  // Componente para seção "Minhas Informações" - Layout melhorado
   const PersonalInfoSection = () => (
-    <div>
+    <div style={{ position: 'relative' }}>
       <h2 className='profile-title'>Minhas Informações</h2>
       <div className='profile-edit'>Editar</div>
+
       <div className='profile-section'>
-        <p className='divisor1'>
-          <svg
-            className='divider'
-            xmlns='http://www.w3.org/2000/svg'
-            width='832'
-            height='2'
-            viewBox='0 0 832 2'
-            fill='none'
-          >
-            <path d='M1 1H831' stroke='#CCCCCC' strokeLinecap='round' />
-          </svg>
-        </p>
+        <div className='divisor1'></div>
         <h3 className='profile-subtitle1'>Informações Pessoais</h3>
-        <div className='profile-label'>Nome:</div>
-        <div className='profile-info'>{userProfile.name}</div>
-        <div className='profile-label'>CPF:</div>
-        <div className='profile-info'>{userProfile.cpf}</div>
-        <div className='profile-label'>Email:</div>
-        <div className='profile-info'>{userProfile.email}</div>
-        <div className='profile-label'>Celular:</div>
-        <div className='profile-info'>{userProfile.phone}</div>
+        <div>
+          <div className='profile-label'>Nome:</div>
+          <div className='profile-info'>{userProfile.name}</div>
+        </div>
+        <div>
+          <div className='profile-label'>CPF:</div>
+          <div className='profile-info'>{userProfile.cpf}</div>
+        </div>
+        <div>
+          <div className='profile-label'>Email:</div>
+          <div className='profile-info'>{userProfile.email}</div>
+        </div>
+        <div>
+          <div className='profile-label'>Celular:</div>
+          <div className='profile-info'>{userProfile.phone}</div>
+        </div>
       </div>
+
       <div className='profile-section'>
-        <p className='divisor2'>
-          <svg
-            className='divider'
-            xmlns='http://www.w3.org/2000/svg'
-            width='832'
-            height='2'
-            viewBox='0 0 832 2'
-            fill='none'
-          >
-            <path d='M1 1H831' stroke='#CCCCCC' strokeLinecap='round' />
-          </svg>
-        </p>
+        <div className='divisor2'></div>
         <h3 className='profile-subtitle2'>Informações de Entrega</h3>
-        <div className='profile-label'>Endereço:</div>
-        <div className='profile-info'>{userProfile.address}</div>
-        <div className='profile-label'>Bairro:</div>
-        <div className='profile-info'>{userProfile.neighborhood}</div>
-        <div className='profile-label'>Cidade:</div>
-        <div className='profile-info'>{userProfile.city}</div>
-        <div className='profile-label'>CEP:</div>
-        <div className='profile-info'>{userProfile.zipCode}</div>
+        <div>
+          <div className='profile-label'>Endereço:</div>
+          <div className='profile-info'>{userProfile.address}</div>
+        </div>
+        <div>
+          <div className='profile-label'>Bairro:</div>
+          <div className='profile-info'>{userProfile.neighborhood}</div>
+        </div>
+        <div>
+          <div className='profile-label'>Cidade:</div>
+          <div className='profile-info'>{userProfile.city}</div>
+        </div>
+        <div>
+          <div className='profile-label'>CEP:</div>
+          <div className='profile-info'>{userProfile.zipCode}</div>
+        </div>
       </div>
     </div>
   );
@@ -171,8 +174,10 @@ const UserDashboard = () => {
     <div>
       <h2 className='profile-title'>Métodos de Pagamento</h2>
       <div className='profile-section'>
-        <div className='profile-label'>Cartão:</div>
-        <div className='profile-info'>{userProfile.paymentMethod}</div>
+        <div>
+          <div className='profile-label'>Cartão:</div>
+          <div className='profile-info'>{userProfile.paymentMethod}</div>
+        </div>
       </div>
     </div>
   );
@@ -189,11 +194,11 @@ const UserDashboard = () => {
       case 'Métodos de Pagamento':
         return <PaymentMethodsSection />;
       default:
-        return null;
+        return <OrdersSection />; // Fallback para a seção de pedidos
     }
   };
 
-  // Determinando qual classe de container usar baseado na seção ativa
+  // Container class baseado na seção ativa (mantido para compatibilidade)
   const containerClass =
     activeSection === 'Meus Pedidos'
       ? 'order-tracking-container'
@@ -201,20 +206,29 @@ const UserDashboard = () => {
 
   return (
     <div className={containerClass}>
-      {/* Sidebar */}
+      {/* Sidebar - Menu de navegação */}
       <div className='sidebar'>
         {sidebarItems.map(item => (
           <div
             key={item}
             className={`sidebar-item${item === activeSection ? ' active' : ''}`}
             onClick={() => handleSidebarClick(item)}
+            // Adiciona role para acessibilidade
+            role='button'
+            tabIndex={0}
+            // Suporte para navegação por teclado
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleSidebarClick(item);
+              }
+            }}
           >
             {item}
           </div>
         ))}
       </div>
 
-      {/* Main Content */}
+      {/* Conteúdo Principal */}
       <div
         className={
           activeSection === 'Meus Pedidos'

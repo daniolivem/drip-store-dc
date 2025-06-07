@@ -34,6 +34,7 @@
   background-color: var(--white, #ffffff);
   border-radius: 4px;
 }
+
 .container-title {
   width: 100%;
   max-width: 523px;
@@ -188,11 +189,15 @@
     justify-content: center;
   }
 
+  .limit-container {
+    min-width: 375px;
+  }
+
   .container-form {
     width: 100%;
     min-width: 315px;
     height: 100%;
-    min-height: 572px;
+    min-height: 411px;
     border-radius: 4px;
   }
 
@@ -231,5 +236,20 @@
 
   .container-images {
     display: none;
+  }
+}
+
+/* Responsividade */
+@media screen and (max-width: 1300px) {
+  .container {
+    padding: 120px 30px 163px 35px;
+  }
+
+  .limit-container {
+    min-width: 375px;
+  }
+
+  .container-images {
+    max-width: 550px;
   }
 }

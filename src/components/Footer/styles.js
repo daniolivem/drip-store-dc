@@ -106,6 +106,10 @@ export const Container = styled.footer`
         line-height: 26px;
         padding-top: 14px;
       }
+
+      a {
+        color: var(--white);
+      }
     }
   }
 
