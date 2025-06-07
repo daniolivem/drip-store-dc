@@ -11,15 +11,19 @@ const ShoppingCartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal } = useCart();
   const navigate = useNavigate(); // Obtenha a função navigate
 
-  // Calcula o subtotal usando a função do contexto 
+  // Calcula o subtotal usando a função do contexto
   const subtotal = getCartTotal();
   const shipping = 0; // Frete grátis
   // Calcule o desconto de 50% baseado no subtotal
-  const discount = subtotal * 0.50; 
+  const discount = subtotal * 0.5;
   const total = subtotal + shipping - discount;
 
   const handleContinueShopping = () => {
     navigate('/produtos'); // Redireciona para a página de produtos
+  };
+
+  const handleCheckoutPage = () => {
+    navigate('/checkout'); // Redireciona para a página de checkout
   };
 
   return (
@@ -38,7 +42,7 @@ const ShoppingCartPage = () => {
             {cartItems.map(item => (
               <div key={item.id} className='cart-item'>
                 <img
-                  src={item.imageUrl=('/src/assets/images/kseriesv8.png')} // Use item.imageUrl conforme definido no contexto
+                  src={(item.imageUrl = '/src/assets/images/kseriesv8.png')} // Use item.imageUrl conforme definido no contexto
                   alt={item.name}
                   className='cart-item-image'
                 />
@@ -46,16 +50,30 @@ const ShoppingCartPage = () => {
                   <h3>{item.name}</h3>
                   {/* Display original price as R$ 200.00 */}
                   <p>Preço: R$ 200.00</p>
-                  <div className="quantity-control">
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>-</button>
+                  <div className='quantity-control'>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      disabled={item.quantity <= 1}
+                    >
+                      -
+                    </button>
                     <span>{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
                 <div className='cart-item-price'>
                   {/* Calculate item total using R$ 200.00 as base price for display */}
-                  <p>R$ {(200.00 * item.quantity).toFixed(2)}</p>
-                  <button className='remove-item-btn' onClick={() => removeFromCart(item.id)}>Remover</button>
+                  <p>R$ {(200.0 * item.quantity).toFixed(2)}</p>
+                  <button
+                    className='remove-item-btn'
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    Remover
+                  </button>
                 </div>
               </div>
             ))}
@@ -79,8 +97,15 @@ const ShoppingCartPage = () => {
               <span>Total:</span>
               <span>R$ {total.toFixed(2)}</span>
             </div>
-            <button className='checkout-button'>Ir para o Pagamento</button>
-            <button className='continue-shopping-button' onClick={handleContinueShopping}> {/* Adicione o onClick handler */}
+            <button className='checkout-button' onClick={handleCheckoutPage}>
+              Ir para o Pagamento
+            </button>
+            <button
+              className='continue-shopping-button'
+              onClick={handleContinueShopping}
+            >
+              {' '}
+              {/* Adicione o onClick handler */}
               Continuar Comprando
             </button>
           </div>

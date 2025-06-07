@@ -233,9 +233,9 @@ const ProductListingPage = () => {
 
           {/* Grid de produtos */}
           <main className='products-grid'>
-            <ProductListing $isPageProducts products={products} />
-            <ProductListing $isPageProducts products={products} />
-            <ProductListing $isPageProducts products={products} />
+            <ProductListing $ismobile='true' products={products} />
+            <ProductListing $ismobile='true' products={products} />
+            <ProductListing $ismobile='true' products={products} />
           </main>
         </div>
       </Section>

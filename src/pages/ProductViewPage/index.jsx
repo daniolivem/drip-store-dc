@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './styles.css'; 
+import './styles.css';
 import { useCart } from '../../contexts/CartContext'; // Seu hook do carrinho
+import { useNavigate } from 'react-router-dom'; // Para navegação
 
 // Cores dos backgrounds dos thumbnails, extraídas do seu ProductViewPage.css
 const THUMBNAIL_CSS_COLORS = [
@@ -13,14 +14,16 @@ const THUMBNAIL_CSS_COLORS = [
 
 const ProductViewPage = () => {
   const { addToCart } = useCart();
+  const navigate = useNavigate(); // Para navegação, se necessário
 
   // Mock product data
   const product = {
     id: 1,
     name: 'Tênis Nike Revolution 6 Next Nature Masculino',
-    price: 200.00,
-    priceDiscount: 100.00,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    price: 200.0,
+    priceDiscount: 100.0,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     // Idealmente, você teria imagens diferentes para cada thumbnail/cor
     images: [
       '/src/assets/images/tenis.png', // Imagem para thumbnail 1
@@ -43,13 +46,16 @@ const ProductViewPage = () => {
   );
   const [activeThumbnailIndex, setActiveThumbnailIndex] = useState(0);
 
-
-  const handleSizeSelect = (size) => {
+  const handleSizeSelect = size => {
     setSelectedSize(size);
   };
 
+  const handleShoppingCart = () => {
+    navigate('/shopping-cart'); // Redireciona para a página de carrinho
+  };
+
   // Handler para seleção de cor do produto (swatches)
-  const handleProductColorSelect = (color) => {
+  const handleProductColorSelect = color => {
     setSelectedColor(color);
     // Aqui você pode adicionar lógica se a seleção de cor do produto também deve mudar a imagem principal
     // ou o fundo da imagem principal, se houver uma correspondência.
@@ -75,72 +81,93 @@ const ProductViewPage = () => {
         selectedColor, // Esta é a cor do produto selecionada nos swatches
         imageUrl: mainImage,
       });
-      console.log('Adding to cart:', product.name, 'Size:', selectedSize, 'Color:', selectedColor);
+      console.log(
+        'Adding to cart:',
+        product.name,
+        'Size:',
+        selectedSize,
+        'Color:',
+        selectedColor
+      );
+      handleShoppingCart(); // Mover a chamada para cá
     } else {
       // Considerar substituir alert por um feedback de UI mais integrado
-      alert('Por favor, selecione um tamanho e uma cor antes de adicionar ao carrinho.');
+      alert(
+        'Por favor, selecione um tamanho e uma cor antes de adicionar ao carrinho.'
+      );
     }
   };
 
   return (
     // Usa a classe CSS definida em ProductViewPage.css
-    <div className="product-view-container">
-      <div className="breadcrumb">
-        <span>Home</span><span>Produtos</span><span>{product.name}</span>
+    <div className='product-view-container'>
+      <div className='breadcrumb'>
+        <span>Home</span>
+        <span>Produtos</span>
+        <span>{product.name}</span>
       </div>
-        <div className="product-title">
+      <div className='product-title'>
         <p>Casual | Nike | REF:38416711</p>
-        </div>
-      <div className="product-details-section">
-        <div className="image-gallery">
+      </div>
+      <div className='product-details-section'>
+        <div className='image-gallery'>
           {/* Wrapper para a imagem principal, com estilo para a variável CSS */}
           <div
-            className="main-image-wrapper"
+            className='main-image-wrapper'
             style={{ '--main-image-bg-color': mainImageBg }}
           >
-            <img src={mainImage} alt={product.name} className="main-image" />
+            <img src={mainImage} alt={product.name} className='main-image' />
           </div>
 
-          <div className="thumbnails">
+          <div className='thumbnails'>
             {/* Mapeia as imagens do produto, limitado pelo número de cores de thumbnail definidas */}
-            {product.images.slice(0, THUMBNAIL_CSS_COLORS.length).map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`${product.name} thumbnail ${index + 1}`}
-                className={`thumbnail ${activeThumbnailIndex === index ? 'active' : ''}`}
-                onClick={() => handleThumbnailClick(image, index)}
-                // A cor de fundo do thumbnail em si é definida pelo CSS via :nth-child
-              />
-            ))}
+            {product.images
+              .slice(0, THUMBNAIL_CSS_COLORS.length)
+              .map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${product.name} thumbnail ${index + 1}`}
+                  className={`thumbnail ${activeThumbnailIndex === index ? 'active' : ''}`}
+                  onClick={() => handleThumbnailClick(image, index)}
+                  // A cor de fundo do thumbnail em si é definida pelo CSS via :nth-child
+                />
+              ))}
           </div>
         </div>
 
-        <div className="product-info">
+        <div className='product-info'>
           <h2>{product.name}</h2>
-          <div className="rating">
-          
-            <link className="fa-star" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
+          <div className='rating'>
+            <link
+              className='fa-star'
+              rel='stylesheet'
+              href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+            />
+            <span className='fa fa-star checked'></span>
+            <span className='fa fa-star checked'></span>
+            <span className='fa fa-star checked'></span>
+            <span className='fa fa-star checked'></span>
+            <span className='fa fa-star'></span>
             <span> 4.7 (90 avaliações)</span>
           </div>
-          <div className="price-info">
-          <span className="current-price">R$ {product.priceDiscount.toFixed(2)}</span> &nbsp;
+          <div className='price-info'>
+            <span className='current-price'>
+              R$ {product.priceDiscount.toFixed(2)}
+            </span>{' '}
+            &nbsp;
             {product.price > product.priceDiscount && (
-              <span className="original-price">R$ {product.price.toFixed(2)}</span>
+              <span className='original-price'>
+                R$ {product.price.toFixed(2)}
+              </span>
             )}
-            
           </div>
-          <p className="description">{product.description}</p>
+          <p className='description'>{product.description}</p>
 
-          <div className="options">
-            <div className="size-options">
+          <div className='options'>
+            <div className='size-options'>
               <h4>Tamanho</h4>
-              <div className="buttons">
+              <div className='buttons'>
                 {product.sizes.map(size => (
                   <button
                     key={size}
@@ -153,9 +180,9 @@ const ProductViewPage = () => {
               </div>
             </div>
 
-            <div className="color-options">
+            <div className='color-options'>
               <h4>Cor</h4>
-              <div className="color-swatches">
+              <div className='color-swatches'>
                 {product.colors.map((colorValue, index) => (
                   <div
                     key={index}
@@ -168,10 +195,11 @@ const ProductViewPage = () => {
             </div>
           </div>
 
-          <button className="buy-button" onClick={handleAddToCart}>COMPRAR</button>
+          <button className='buy-button' onClick={handleAddToCart}>
+            COMPRAR
+          </button>
         </div>
       </div>
-      
     </div>
   );
 };
