@@ -106,9 +106,7 @@ const ProductViewPage = () => {
         <span>Produtos</span>
         <span>{product.name}</span>
       </div>
-      <div className='product-title'>
-        <p>Casual | Nike | REF:38416711</p>
-      </div>
+
       <div className='product-details-section'>
         <div className='image-gallery'>
           {/* Wrapper para a imagem principal, com estilo para a variável CSS */}
@@ -138,6 +136,10 @@ const ProductViewPage = () => {
 
         <div className='product-info'>
           <h2>{product.name}</h2>
+
+          <div className='product-title'>
+            <p>Casual | Nike | REF:38416711</p>
+          </div>
           <div className='rating'>
             <link
               className='fa-star'
