@@ -4,6 +4,7 @@ import Layout from './pages/Layout';
 import FormCreatePage from './pages/FormCreatePage';
 import UserDashboard from './components/UserDashboard';
 import BuySuccessPage from './pages/BuySuccess';
+import Confirmacompra from './pages/pageFinalizarCompra';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListingPage = lazy(() => import('./pages/ProductListingPage'));
 const ProductViewPage = lazy(() => import('./pages/ProductViewPage'));
@@ -58,14 +59,6 @@ const App = () => {
             </Layout>
           }
         />
-        {/* <Route
-          path='/profile'
-          element={
-            <Layout>
-              <UserDashboard />
-            </Layout>
-          }
-        /> */}
         <Route
           path='/login'
           element={
@@ -100,10 +93,18 @@ const App = () => {
         />
         {/* Nova rota para o carrinho */}
         <Route
-          path='/shopping-cart' // Changed from '/cart'
+          path='/shopping-cart'
           element={
             <Layout>
               <ShoppingCartPage />
+            </Layout>
+          }
+        />
+        <Route
+          path='/checkout'
+          element={
+            <Layout>
+              <Confirmacompra />
             </Layout>
           }
         />

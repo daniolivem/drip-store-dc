@@ -103,17 +103,3 @@ const FooterScom = () => {
 };
 
 export default FooterScom;
-
-/**
- 
-<Container>
-          <div className='footer-copyright'>
-            <FooterCopy>
-              © {new Date().getFullYear()} Digital College
-            </FooterCopy>
-          </div>
-        </Container>
-
-
-
- */

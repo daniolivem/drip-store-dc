@@ -10,9 +10,9 @@ export const StyledSection = styled.section`
   padding-bottom: ${props => props.$paddingBottom & '0px'};
   margin-left: 315px;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1300px) {
     padding: 38px 30px;
-    margin-left: 0px;
+    margin-left: 30px;
   }
 
   @media (max-width: 460px) {

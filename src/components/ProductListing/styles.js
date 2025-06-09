@@ -17,7 +17,7 @@ export const Container = styled.div`
 
     @media (max-width: 460px) {
       grid-template-columns: ${props =>
-        props.$isPageProducts
+        props.$ismobile
           ? 'repeat(auto-fit, minmax(163px, 1fr))'
           : 'repeat(auto-fit, minmax(200px, 1fr))'};
       gap: 9px;

@@ -182,7 +182,7 @@ const HomePage = () => {
         title='Produtos em alta'
         link={{ text: 'Ver todos', href: '/collections' }}
       >
-        <ProductListing products={products} />
+        <ProductListing products={products} $ismobile='true' />
       </Section>
 
       {/* Seção Marketing Bottom */}

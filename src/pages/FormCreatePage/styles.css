@@ -1,10 +1,9 @@
 /* Container principal do formulário */
 .form-container {
-  width: 750px;
+  width: 100%; /* Alterado para responsividade */
+  max-width: 750px; /* Mantém a largura máxima para desktops */
   margin: 0 auto;
-  /* margin-top: 50px;
-  margin-bottom: 50px; */
-  padding: 30px;
+  padding: 20px; /* Ajustado para telas menores */
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
@@ -15,7 +14,8 @@
 
 /* Container do título */
 .title-container {
-  width: 750px;
+  width: 100%; /* Alterado para responsividade */
+  max-width: 750px; /* Mantém a largura máxima para desktops */
   margin: 0 auto;
   padding: 30px;
   font-family: 'Inter', sans-serif;
@@ -27,7 +27,8 @@
 
 /* Estilo do título principal */
 h1 {
-  width: 440px;
+  width: 100%; /* Alterado para responsividade */
+  max-width: 440px; /* Mantém a largura máxima para desktops */
   align-items: left !important;
   /* margin-bottom: 10px; */
   color: var(--dark-gray, #1f1f1f);
@@ -46,25 +47,36 @@ h1 {
 /* Seção de informações pessoais */
 .personal-info {
   margin-bottom: 20px;
-  margin: auto;
+  margin-left: auto; /* Ajustado para centralizar quando max-width é atingido */
+  margin-right: auto; /* Ajustado para centralizar quando max-width é atingido */
   background: var(--white, #fff);
   border-radius: 8px;
   display: flex;
-  width: 750px;
-  padding: 30px;
+  width: 100%; /* Alterado para responsividade */
+  max-width: 750px; /* Mantém a largura máxima para desktops */
+  padding: 20px; /* Ajustado para telas menores */
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+  box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+.personal-info form {
+  width: 100%;
+  max-width: 690px;
 }
 
 /* Seção de informações de entrega */
 .delivery-info {
   margin-bottom: 20px;
+  margin-left: auto; /* Ajustado para centralizar quando max-width é atingido */
+  margin-right: auto; /* Ajustado para centralizar quando max-width é atingido */
   background: var(--white, #fff);
   border-radius: 8px;
   display: flex;
-  width: 750px;
-  padding: 30px;
+  width: 100%; /* Alterado para responsividade */
+  max-width: 750px; /* Mantém a largura máxima para desktops */
+  padding: 20px; /* Ajustado para telas menores */
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
@@ -99,7 +111,7 @@ h2 {
 /* Campo do formulário */
 .form-field {
   margin-bottom: 15px;
-  width: 408.588px;
+  width: 100%; /* Alterado para responsividade */
   color: var(--dark-gray-2, #474747);
   font-feature-settings:
     'liga' off,
@@ -123,9 +135,10 @@ label {
 
 /* Estilo dos inputs de texto, email e telefone */
 input[type='text'],
+input[type='email'], /* Adicionado para consistência */
 input[type='tel'] {
-  width: 690px;
-  height: 60px;
+  width: 100%; /* Alterado para responsividade */
+  height: 50px; /* Ajustado para melhor toque em mobile */
   flex-shrink: 0;
   padding: 10px;
   border-radius: 4px;
@@ -145,6 +158,13 @@ input::placeholder {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
+  width: 100%; /* Garante que o container ocupe a largura */
+  max-width: 750px; /* Mantém a largura máxima para desktops */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5px; /* Pequeno ajuste para alinhar com os inputs */
+  padding-right: 5px; /* Pequeno ajuste para alinhar com os inputs */
+  box-sizing: border-box;
 }
 
 /* Estilo do checkbox */
@@ -159,7 +179,9 @@ input::placeholder {
 
 /* Label do checkbox */
 .checkbox-container label {
-  width: 718px;
+  width: calc(
+    100% - 32px
+  ); /* Ajusta a largura do label considerando o checkbox e o margin-right */
   flex-shrink: 0;
   font-size: 12px;
   line-height: 1.4;
@@ -180,10 +202,12 @@ input::placeholder {
 /* Botão de envio do formulário */
 .submit-button {
   width: 100%;
-  width: 750px;
+  max-width: 750px; /* Mantém a largura máxima para desktops */
   height: 48px;
   margin-bottom: 20px;
   margin-top: 0;
+  margin-left: auto; /* Centraliza o botão */
+  margin-right: auto; /* Centraliza o botão */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,4 +228,104 @@ input::placeholder {
 /* Hover do botão de envio */
 .submit-button:hover {
   background-color: #c62b60;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablet e Macbook (e mobile em paisagem) */
+@media (max-width: 1023px) {
+  .form-container,
+  .title-container,
+  .personal-info,
+  .delivery-info {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  h2 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'] {
+    height: 48px;
+    font-size: 13px;
+  }
+
+  input::placeholder {
+    font-size: 13px;
+  }
+
+  .checkbox-container label {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .submit-button {
+    height: 44px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .form-container,
+  .title-container,
+  .personal-info,
+  .delivery-info {
+    padding: 15px; /* Menor padding para mobile */
+    gap: 15px;
+  }
+
+  .title-container {
+    align-items: center; /* Centraliza o título em mobile */
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center; /* Centraliza o texto do título */
+  }
+
+  .personal-info,
+  .delivery-info {
+    padding: 15px;
+  }
+
+  .form-field {
+    width: 100%; /* Garante que o campo ocupe toda a largura */
+    max-width: none; /* Remove a largura máxima para mobile */
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'] {
+    height: 45px;
+    font-size: 12px;
+  }
+
+  input::placeholder {
+    font-size: 12px;
+  }
+
+  .checkbox-container {
+    padding-left: 0; /* Remove padding extra em mobile */
+    padding-right: 0; /* Remove padding extra em mobile */
+  }
+
+  .checkbox-container label {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .submit-button {
+    height: 40px;
+    font-size: 14px;
+  }
 }

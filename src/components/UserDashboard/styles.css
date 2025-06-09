@@ -1,307 +1,462 @@
 /* Variáveis globais */
 :root {
-  --primary: #C92071;
-  --dark-gray: #1F1F1F;
+  --primary: #c92071;
+  --dark-gray: #1f1f1f;
   --dark-gray-2: #474747;
-  --light-gray: #8F8F8F;
-  --light-gray-2: #CCC;
+  --light-gray: #8f8f8f;
+  --light-gray-2: #ccc;
   --text-gray: #4b5563;
-  --background-color: #F9F8FE;
+  --background-color: #f9f8fe;
 }
 
-/* Estilos gerais */
-body {
-  font-family: 'Inter', 'Helvetica', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
+/* Reset básico para melhor compatibilidade responsiva */
+* {
+  box-sizing: border-box;
 }
 
-/* Containers principais */
-.order-tracking-container, .profile-container {
-  width: 90%;
-  margin: 40px 10px 60px 50px;
+/* Containers principais - Layout flexível */
+.order-tracking-container,
+.profile-container {
+  width: 100%;
+  max-width: 1400px; /* Limita largura máxima em telas grandes */
+  margin: 20px auto; /* Centraliza o container */
+  padding: 0 20px; /* Padding lateral para evitar colar nas bordas */
   display: flex;
   background-color: var(--background-color);
+  gap: 20px; /* Espaçamento entre sidebar e conteúdo principal */
 }
 
-/* Sidebar (menu lateral) - Estilo padronizado */
-.sidebar, .profile-sidebar {
+/* Sidebar (menu lateral) - Design responsivo */
+.sidebar,
+.profile-sidebar {
   display: flex;
-  width: 350px;
-  height: 240px;
-  min-height: 260px;
-  padding: 30px;
-  margin-right: 40px;
-  margin-left: 40px;
+  width: 280px; /* Largura reduzida para melhor aproveitamento */
+  min-width: 280px; /* Garante largura mínima */
+  height: fit-content; /* Altura ajustável ao conteúdo */
+  padding: 24px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  border-radius: 6px;
-  background: #FFF;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  gap: 8px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky; /* Mantém sidebar fixa ao rolar */
+  top: 20px; /* Espaçamento do topo */
 }
 
-/* Itens do menu lateral - Estilo padronizado */
+/* Itens do menu lateral - Melhor interatividade */
 .sidebar-item {
   display: flex;
   width: 100%;
-  padding: 0.75rem 0.5rem;
+  padding: 12px 16px; /* Padding aumentado para melhor toque */
   cursor: pointer;
   color: var(--text-gray);
   font-size: 14px;
   font-weight: 500;
-  transition: all 0.2s;
-  border-radius: 4px;
+  transition: all 0.3s ease; /* Transição mais suave */
+  border-radius: 6px;
+  text-align: left;
 }
 
-/* Item ativo do menu lateral - Estilo padronizado */
+/* Hover state para melhor UX */
+.sidebar-item:hover {
+  background-color: rgba(233, 233, 255, 0.1);
+  transform: translateX(2px); /* Pequena animação de hover */
+}
+
+/* Item ativo do menu lateral */
 .sidebar-item.active {
   color: #e11d48;
   font-weight: 700;
   background-color: rgba(233, 233, 255, 0.2);
 }
 
-/* Área principal onde fica o conteúdo - Estilo comum */
-.main-content, .profile-main-content {
-  background-color: #FFF;
-  flex: 1;
-  padding: 2rem;
-  border-radius: 8px;
-}
-
+/* Área principal - Layout flexível */
+.main-content,
 .profile-main-content {
-  width: 830px;
+  background-color: #fff;
+  flex: 1; /* Ocupa espaço restante */
+  min-width: 0; /* Permite flex shrink */
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Cabeçalho da página - Estilo comum */
-.header, .profile-title {
-  margin-top: 0px;
-  margin-bottom: 20px;
-  text-align: left;
-  margin-right: 100px;
-  color: var(--light-gray);
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0.75px;
+/* Cabeçalho - Layout responsivo */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--light-gray-2);
 }
 
-/* Subtítulos - Estilos específicos para perfil */
-.profile-subtitle1, .profile-subtitle2 {
-  margin-top: 10px;
+.profile-title {
+  margin: 0 0 24px 0;
   color: var(--dark-gray-2);
-  text-align: center;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0.75px;
-}
-
-.profile-subtitle2 {
-  margin-top: 2px;
+  line-height: 1.4;
 }
 
 /* Título do cabeçalho */
 .header h1 {
   color: var(--dark-gray-2);
-  text-align: left;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0.75px;
+  margin: 0;
 }
 
-/* Subtítulo/status do cabeçalho */
+/* Status do cabeçalho */
 .status-header {
-  margin-top: -24px;
   color: var(--dark-gray-2);
-  text-align: right;
-  margin-right: -99px;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 22px;
-  letter-spacing: 0.25px;
 }
 
-/* Link de edição - Específico para perfil */
+/* Link de edição - Posicionamento responsivo */
 .profile-edit {
-  margin-top: -42px;
+  position: absolute;
+  top: 32px;
+  right: 32px;
   color: var(--primary);
-  text-align: center;
-  margin-left: 90%;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 22px;
-  letter-spacing: 0.25px;
-  text-decoration-line: underline;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-/* Linha divisória */
-.divider, .divisor1, .divisor2 {
-  width: 750px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+/* Linha divisória - Largura responsiva */
+.divider {
+  width: 100%;
+  margin: 16px 0;
   stroke: var(--light-gray-2);
 }
 
-.divider {
-  position: absolute;
-  margin-top: 20px;
-}
-
-.divisor1 {
-  height: 0px;
-  margin-top: -15px;
-  margin-bottom: 20px;
-  align-self: center;
-}
-
+.divisor1,
 .divisor2 {
-  height: 0px;
-  margin-top: -35px;
-  margin-bottom: 30px;
-  align-self: center;
-  margin-right: 1px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-gray-2);
+  margin: 20px 0;
 }
 
-/* Lista de pedidos - Específico para rastreamento de pedidos */
+/* Subtítulos */
+.profile-subtitle1,
+.profile-subtitle2 {
+  color: var(--dark-gray-2);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 16px 0;
+  text-align: left; /* Alinhamento à esquerda para melhor leitura */
+}
+
+/* Lista de pedidos - Layout responsivo */
 .orders-list {
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  margin-top: 30px;
+  gap: 16px;
+  margin-top: 24px;
 }
 
-/* Cada item de pedido */
+/* Cada item de pedido - Layout flexível */
 .order-item {
-  margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  border-bottom: 1px solid #eee;
+  padding: 20px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
 }
 
-/* Detalhes do pedido (lado esquerdo do item) */
+.order-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Detalhes do pedido */
 .order-details {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
+  flex: 1;
+  min-width: 0; /* Permite texto quebrar */
 }
 
 /* Container da imagem do produto */
 .product-image-container {
-  width: 71.178px;
-  height: 58px;
+  width: 64px;
+  height: 52px;
   flex-shrink: 0;
-  border-radius: 2.669px;
-  background: #E2E3FF;
+  border-radius: 4px;
+  background: #e2e3ff;
 }
 
 /* Imagem do produto */
 .product-image {
-  width: 70.628px;
-  height: 55.191px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border-radius: 2.669px;
-  background-color: #E2E3FF;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #e2e3ff;
   background-image: url('/src/assets/images/tenisnike.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-/* Número do pedido */
+/* Informações do pedido */
+.order-info {
+  flex: 1;
+  min-width: 0;
+}
+
 .order-info .order-number {
   font-size: 12px;
   color: #6b7280;
   margin-bottom: 4px;
 }
 
-/* Nome do produto */
 .order-info .product-name {
   font-weight: 500;
   color: #1f2937;
   font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word; /* Quebra texto longo */
 }
 
-/* Indicadores de status do pedido */
+/* Status do pedido */
 .status {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  white-space: nowrap; /* Impede quebra do status */
+  margin-left: 16px;
 }
 
-/* Status: em trânsito */
 .status.in-transit {
   color: #f59e0b;
 }
-
-/* Status: concluído */
 .status.completed {
   color: #6b7280;
 }
-
-/* Status: cancelado */
 .status.canceled {
   color: #e11d48;
 }
 
-/* Seções de informações - Específico para perfil */
+/* Seções de perfil - Layout melhorado */
 .profile-section {
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+.profile-section > div {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 20px;
-  border-radius: 8px;
-  flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 16px;
 }
 
 .profile-label {
   color: var(--light-gray);
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 22px;
-  letter-spacing: 0.25px;
-  margin-right: 8px;
-  min-width: 100px;
+  min-width: 120px;
+  flex-shrink: 0;
 }
 
-/* Valores dos campos */
 .profile-info {
   color: var(--dark-gray);
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 22px;
-  letter-spacing: 0.25px;
   flex: 1;
+  word-wrap: break-word;
+}
+
+/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
+
+/* TABLET E MACBOOK (768px - 1024px) */
+@media (max-width: 1024px) {
+  .order-tracking-container,
+  .profile-container {
+    padding: 0 16px;
+    gap: 16px;
+  }
+
+  .sidebar,
+  .profile-sidebar {
+    width: 240px;
+    min-width: 240px;
+    padding: 20px;
+  }
+
+  .main-content,
+  .profile-main-content {
+    padding: 24px;
+  }
+
+  .profile-edit {
+    top: 24px;
+    right: 24px;
+  }
+
+  /* Ajuste do layout de pedidos para telas menores */
+  .order-details {
+    gap: 12px;
+  }
+
+  .product-image-container {
+    width: 56px;
+    height: 46px;
+  }
+
+  .profile-label {
+    min-width: 100px;
+  }
+}
+
+/* MOBILE (até 768px) */
+@media (max-width: 768px) {
+  /* Layout principal vira stack vertical */
+  .order-tracking-container,
+  .profile-container {
+    flex-direction: column;
+    margin: 10px auto;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  /* Sidebar vira horizontal no topo */
+  .sidebar,
+  .profile-sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    padding: 16px;
+    flex-direction: row;
+    overflow-x: auto; /* Scroll horizontal se necessário */
+    gap: 4px;
+    position: static; /* Remove sticky em mobile */
+  }
+
+  .sidebar-item {
+    white-space: nowrap;
+    padding: 10px 16px;
+    min-width: fit-content;
+  }
+
+  .sidebar-item:hover {
+    transform: none; /* Remove animação hover em mobile */
+  }
+
+  /* Conteúdo principal */
+  .main-content,
+  .profile-main-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Header responsivo */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .status-header {
+    align-self: flex-end;
+  }
+
+  .profile-title {
+    font-size: 16px;
+    position: relative;
+  }
+
+  .profile-edit {
+    position: static;
+    margin-top: 8px;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* Layout de pedidos em mobile */
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .order-details {
+    width: 100%;
+  }
+
+  .status {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+
+  /* Perfil em mobile - layout vertical */
+  .profile-section > div {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .profile-label {
+    min-width: unset;
+    font-weight: 600;
+  }
+
+  .profile-info {
+    padding-left: 0;
+  }
+
+  /* Subtítulos em mobile */
+  .profile-subtitle1,
+  .profile-subtitle2 {
+    font-size: 14px;
+    margin: 16px 0 12px 0;
+  }
+}
+
+/* MOBILE PEQUENO (até 480px) */
+@media (max-width: 480px) {
+  .order-tracking-container,
+  .profile-container {
+    padding: 0 8px;
+  }
+
+  .main-content,
+  .profile-main-content {
+    padding: 16px;
+  }
+
+  .sidebar,
+  .profile-sidebar {
+    padding: 12px;
+  }
+
+  .sidebar-item {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .header h1,
+  .profile-title {
+    font-size: 14px;
+  }
+
+  .product-image-container {
+    width: 48px;
+    height: 40px;
+  }
+
+  .order-info .product-name {
+    font-size: 13px;
+  }
+
+  .status {
+    font-size: 13px;
+  }
 }

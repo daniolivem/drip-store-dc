@@ -81,11 +81,21 @@
 }
 
 /* Cores de fundo específicas para cada thumbnail */
-.product-view-container .image-gallery .thumbnail:nth-child(1) { background: #E2E3FF; }
-.product-view-container .image-gallery .thumbnail:nth-child(2) { background: #FFE8BC; }
-.product-view-container .image-gallery .thumbnail:nth-child(3) { background: #FFC0BC; }
-.product-view-container .image-gallery .thumbnail:nth-child(4) { background: #DEC699; }
-.product-view-container .image-gallery .thumbnail:nth-child(5) { background: #E8DFCF; }
+.product-view-container .image-gallery .thumbnail:nth-child(1) {
+  background: #e2e3ff;
+}
+.product-view-container .image-gallery .thumbnail:nth-child(2) {
+  background: #ffe8bc;
+}
+.product-view-container .image-gallery .thumbnail:nth-child(3) {
+  background: #ffc0bc;
+}
+.product-view-container .image-gallery .thumbnail:nth-child(4) {
+  background: #dec699;
+}
+.product-view-container .image-gallery .thumbnail:nth-child(5) {
+  background: #e8dfcf;
+}
 
 /* Destaque para thumbnail ativa */
 .product-view-container .image-gallery .thumbnail.active {
@@ -99,15 +109,19 @@
 
 /* Informações do produto (ao lado da imagem) */
 .product-view-container .product-info {
-  flex: 1.5;
-  min-width: 300px;
-  padding-left: 40px;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Título do produto */
 .product-view-container .product-info h2 {
-  color: var(--dark-gray, #1F1F1F);
-  font-feature-settings: 'liga' off, 'clig' off;
+  color: var(--dark-gray, #1f1f1f);
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
   font-family: Inter;
   font-size: 2em;
   font-style: normal;
@@ -124,17 +138,7 @@
   position: absolute;
   display: flex;
   padding: 5px 0px 5px 0px;
-  margin-left: 710px;
   margin-top: 80px;
-  justify-content: right;
-  color: var(--dark-gray-3, #666);
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px; /* 150% */
-  letter-spacing: 0.5px;
 }
 
 /* Estrelas de avaliação */
@@ -236,7 +240,9 @@
 /* Swatch de cor selecionado */
 .product-view-container .product-info .color-swatch.selected {
   border-color: #333;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #333;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #333;
 }
 
 /* Botão de comprar */
@@ -246,7 +252,7 @@
   max-width: 280px;
   height: 50px;
   flex-shrink: 0;
-  background-color: #FFB31F;
+  background-color: #ffb31f;
   color: white;
   border: none;
   cursor: pointer;
