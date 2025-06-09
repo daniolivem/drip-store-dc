@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import NikeImg from '../../assets/images/White-Sneakers.png';
 import './styles.css';
 
 const UserDashboard = () => {
@@ -105,7 +106,9 @@ const UserDashboard = () => {
           <div key={order.id} className='order-item'>
             <div className='order-details'>
               <div className='product-image-container'>
-                <div className='product-image'></div>
+                <div className='product-image'>
+                  <img src={NikeImg} alt='tenis' />
+                </div>
               </div>
               <div className='order-info'>
                 <div className='order-number'>Pedido nº {order.id}</div>

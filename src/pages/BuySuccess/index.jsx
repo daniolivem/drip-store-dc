@@ -5,24 +5,24 @@ import { ButtonShop } from '../../components/Buttons/styles';
 
 const BuySuccessPage = () => {
   return (
-    <div class='container-main'>
-      <div class='container'>
+    <div className='container-main'>
+      <div className='container'>
         <div className='content-icon-title'>
-          <div class='confete-icon'>
+          <div className='confete-icon'>
             <img src={ConfeteIcon} alt='Confete de festa' />
           </div>
 
-          <div class='content-title'>
-            <h2>
+          <div className='content-title'>
+            <h3>
               Compra Realizada <br /> com sucesso!{' '}
-            </h2>
+            </h3>
           </div>
         </div>
 
-        <div class='linha-divisor'></div>
+        <div className='linha-divisor'></div>
 
-        <div class='section-info'>
-          <h2>Informações Pessoais</h2>
+        <div className='section-info'>
+          <h3>Informações Pessoais</h3>
           <p>
             <span>Nome:</span>
             <strong> Francisco Antonio Pereira</strong>
@@ -41,9 +41,9 @@ const BuySuccessPage = () => {
           </p>
         </div>
 
-        <div class='linha-divisor'></div>
+        <div className='linha-divisor'></div>
 
-        <div class='section-info'>
+        <div className='section-info'>
           <h2>Informações de Entrega</h2>
           <p>
             <span>Endereço:</span>
@@ -63,10 +63,10 @@ const BuySuccessPage = () => {
           </p>
         </div>
 
-        <div class='linha-divisor'></div>
+        <div className='linha-divisor'></div>
 
-        <div class='section-payment'>
-          <h2>Informações de Pagamento</h2>
+        <div className='section-payment'>
+          <h3>Informações de Pagamento</h3>
           <p>
             <span>Titular do cartão:</span>
             <strong>FRANCISCO A P</strong>
@@ -77,28 +77,28 @@ const BuySuccessPage = () => {
           </p>
         </div>
 
-        <div class='linha-divisor'></div>
+        <div className='linha-divisor'></div>
 
-        <div class='section-resumo'>
-          <h4>Resumo da compra</h4>
+        <div className='section-resumo'>
+          <h3>Resumo da compra</h3>
 
-          <div class='container-imagem-texto'>
-            <div class='lado-esquerdo'>
-              <img src={NikeImg} alt='Ícone de menu' className='tenis' />
+          <div className='container-imagem-texto'>
+            <div className='lado-esquerdo'>
+              <img src={NikeImg} alt='Ícone de menu' />
             </div>
-            <div class='lado-direito'>
+            <div className='lado-direito'>
               <p>Tênis Nike Revolution 6 Next Nature</p>
               <p>Masculino</p>
             </div>
           </div>
         </div>
 
-        <div class='container-total-valor'>
-          <div class='total-valor'>
+        <div className='container-total-valor'>
+          <div className='total-valor'>
             <span>Total</span>
             <span>R$ 219,00</span>
           </div>
-          <div class='info-parcelas'>
+          <div className='info-parcelas'>
             <p>ou 10x de 21,90 sem juros </p>
           </div>
         </div>

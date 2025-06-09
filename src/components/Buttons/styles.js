@@ -61,4 +61,12 @@ export const ButtonShop = styled.button`
   height: 50px;
   border-radius: 8px;
   background-color: var(--warning-color);
+  transition-duration: 200ms;
+  color: var(--light-gray-3);
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;

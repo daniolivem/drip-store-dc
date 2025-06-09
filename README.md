@@ -6,11 +6,11 @@ Este projeto faz parte do curso de Front-End e será desenvolvido em equipe por 
 
 ## 👥 Equipe
 
-| Membro | Nome         | Responsabilidade Principal                                      |
-| ------ | ------------ | --------------------------------------------------------------- |
-| 👤 1   | [Anderson]   | Layout geral + Página Inicial                                   |
-| 👤 2   | [Dani]       | Footer + Order Tracking + FormCreatePage + CreateAccountInitialPage + LoginPage |
-| 👤 3   | [Colega 2]   | Página de Visualização do Produto                               |
+| Membro | Nome       | Responsabilidade Principal                                                      |
+| ------ | ---------- | ------------------------------------------------------------------------------- |
+| 👤 1   | [Anderson] | Layout geral + Página Inicial + Responsividade geral                            |
+| 👤 2   | [Dani]     | Footer + Order Tracking + FormCreatePage + CreateAccountInitialPage + LoginPage |
+| 👤 3   | [Ademar]   | Página de Checkout (Finalizar compra e page BuySuccess)                         |
 
 > Observação: todos podem revisar e ajudar nas tarefas uns dos outros via Pull Request!
 
@@ -76,23 +76,24 @@ src/
 
 **Responsável por:**
 
-- contexts: 
-   - `/CartContext`;
+- contexts:
+  - `/CartContext`;
 - Components:
+
   - Componente `<Footer />` + CSS (logo, informações, redes sociais, direitos autorais);
-  - Componente `<UserDashboard/>` + CSS  (Perfil, pedidos, informações e pagamentos);
+  - Componente `<UserDashboard/>` + CSS (Perfil, pedidos, informações e pagamentos);
   - Componente `<ProductCard/>` + CSS;
 
 - Páginas :
-  - `/CreateAccountInitialPage` + CSS 
-  - `/ShoppingCartPage` + CSS 
-  - `/ProductListingPage` + CSS 
+  - `/CreateAccountInitialPage` + CSS
+  - `/ShoppingCartPage` + CSS
+  - `/ProductListingPage` + CSS
   - `/ProductViewPage` + SC
-  - `/CreateFormPage` + CSS 
-  - `/LoginPage` + CSS 
+  - `/CreateFormPage` + CSS
+  - `/LoginPage` + CSS
 - Imagens:
-  - Remoção de background  
-  
+  - Remoção de background
+
 ---
 
 ### 👤 Pessoa 3 - Página de Visualização do Produto

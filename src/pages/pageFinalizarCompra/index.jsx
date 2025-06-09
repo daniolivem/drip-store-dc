@@ -1,7 +1,15 @@
 import './style.css';
 import tenis from '../../assets/images/tenis.png';
+import { useNavigate } from 'react-router-dom';
 
 const Confirmacompra = () => {
+  const navigate = useNavigate();
+
+  // Função para redirecionar para a página de confirmação de compra
+  const handleConfirmarCompra = () => {
+    navigate('/product-success');
+  };
+
   return (
     <div className='checkout-container'>
       {/* Main Content */}
@@ -244,7 +252,10 @@ const Confirmacompra = () => {
                 </div>
               </div>
 
-              <button className='summary-payment-btn'>
+              <button
+                className='summary-payment-btn'
+                onClick={handleConfirmarCompra}
+              >
                 Realizar Pagamento
               </button>
             </div>
