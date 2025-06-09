@@ -9,8 +9,7 @@ Este projeto faz parte do curso de Front-End e será desenvolvido em equipe por 
 | Membro | Nome       | Responsabilidade Principal                                                      |
 | ------ | ---------- | ------------------------------------------------------------------------------- |
 | 👤 1   | [Anderson] | Layout geral + Página Inicial + Responsividade geral                            |
-| 👤 2   | [Dani]     | Footer + Order Tracking + CreateFormPage + CreateAccountInitialPage + LoginPage 
-+ ShoppingCartPage + ProductListingPage + ProductViewPage + ProductCard                                 |
+| 👤 2   | [Dani]     | Footer + Order Tracking + CreateFormPage + CreateAccountInitialPage + LoginPage + ShoppingCartPage + ProductListingPage + ProductViewPage + ProductCard                                 |
 | 👤 3   | [Ademar]   | Página de Checkout (Finalizar compra e page BuySuccess)                         |
 
 > Observação: todos podem revisar e ajudar nas tarefas uns dos outros via Pull Request!
