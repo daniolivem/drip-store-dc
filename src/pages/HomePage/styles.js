@@ -192,6 +192,7 @@ export const ContainerBottom = styled.section`
     }
 
     p {
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: 0.75px;
       line-height: 28px;

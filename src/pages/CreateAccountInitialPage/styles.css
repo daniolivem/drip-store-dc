@@ -195,7 +195,7 @@
   transform: rotate(-5deg);
   transform-origin: 0% 0%;
   flex-shrink: 0;
-  background: url('src\assets\images\pexels.svg') no-repeat;
+  background: url('../../assets/images/pexels.svg') no-repeat;
 }
 
 .container-image2 {
@@ -205,7 +205,7 @@
   width: 252px;
   height: 515px;
   flex-shrink: 0;
-  background: url('src\assets\images\pexels2.svg') no-repeat;
+  background: url('../../assets/images/pexels2.svg') no-repeat;
 }
 
 /* Responsividade */
