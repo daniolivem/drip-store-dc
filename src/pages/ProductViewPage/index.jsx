@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles.css';
 import { useCart } from '../../contexts/CartContext'; // Seu hook do carrinho
+import tenisImg from '../../assets/images/tenis.png'; // Importando a imagem
 import { useNavigate } from 'react-router-dom'; // Para navegação
 
 // Cores dos backgrounds dos thumbnails, extraídas do seu ProductViewPage.css
@@ -26,11 +27,11 @@ const ProductViewPage = () => {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     // Idealmente, você teria imagens diferentes para cada thumbnail/cor
     images: [
-      '/src/assets/images/tenis.png', // Imagem para thumbnail 1
-      '/src/assets/images/tenis.png', // Imagem para thumbnail 2 (ou tenis_variant2.png)
-      '/src/assets/images/tenis.png', // Imagem para thumbnail 3 (ou tenis_variant3.png)
-      '/src/assets/images/tenis.png', // Imagem para thumbnail 4 (ou tenis_variant4.png)
-      '/src/assets/images/tenis.png', // Imagem para thumbnail 5 (ou tenis_variant5.png)
+      tenisImg, // Usando a imagem importada
+      tenisImg, // Se você tiver outras imagens, importe-as da mesma forma
+      tenisImg,
+      tenisImg,
+      tenisImg,
     ],
     sizes: [39, 40, 41, 42, 43],
     colors: ['#00FFFF', '#FF0000', '#800080', '#000000'], // Cores para os seletores de cor do produto
