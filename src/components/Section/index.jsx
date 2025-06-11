@@ -8,7 +8,6 @@ import {
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 const Section = ({ title, titleAlign = 'left', link, children }) => {
-  console.log(link);
   // Determina o alinhamento do título padrão 'left' se não for fornecido ou for diferente de 'center'
   const alignment = titleAlign === 'center' ? 'center' : 'left';
   return (
