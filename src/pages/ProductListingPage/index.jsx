@@ -150,7 +150,7 @@ const ProductListingPage = () => {
 
       <Section>
         <div className='content-container'>
-          {/* Sidebar com filtros */}
+          {/* Sidebar com filtros, filtros não funcionais :( ) */}
           <aside
             className={`filters-sidebar ${isMobile && isSidebarOpen ? 'open' : ''} ${!isMobile ? 'desktop-visible' : ''}`}
           >

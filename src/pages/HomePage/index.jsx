@@ -200,8 +200,7 @@ const HomePage = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
               quam consequuntur dolorum laborum est neque quisquam assumenda.
-              Suscipit, provident? Debitis cum minima temporibus animi sint modi
-              nihil excepturi molestiae ipsa.
+              Suscipit, provident.
             </p>
             <ButtonPrimary $mobile $desktop>
               Ver Oferta
